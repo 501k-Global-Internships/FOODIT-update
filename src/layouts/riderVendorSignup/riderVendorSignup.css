@@ -1,0 +1,22 @@
+@keyframes marquee-slow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .animate-marquee-slow {
+    animation: marquee-slow 30s linear infinite;
+  }
+
+  .wave-pattern {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 199px;
+  background-image: url('../../assets/wave-ride.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
