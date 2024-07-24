@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 // import required modules
 import { Pagination } from 'swiper/modules';
 import { useCart } from '../../Context/CartContext';
-import food from '../../assests/food.svg'
+import food from '../../assets/food.svg'
 
 
 export default function Food() {

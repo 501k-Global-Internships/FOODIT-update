@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import vendor from '../assests/vendor.svg'
+import vendor from '../assets/vendor.svg'
 
 
 import 'swiper/css';
