@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FoodItLogo from '../../assets/foodblack.svg';
-import Image4 from '../../assets/image4.svg';
-import Image5 from '../../assets/image5.svg';
+import Image4 from '../../assets/image-4.svg';
+import Image5 from '../../assets/image-5.svg';
 import Avatar1 from '../../assets/avatar1.svg';
 import Avatar2 from '../../assets/avatar2.svg';
 
