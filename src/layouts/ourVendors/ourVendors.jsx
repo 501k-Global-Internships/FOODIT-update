@@ -35,16 +35,16 @@ const OurVendors = () => {
           <h2 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold lg:font-extrabold text-center mb-6 sm:mb-8 md:mb-10">
             Our Vendors
           </h2>
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 max-w-full">
             {vendors.map((vendor, index) => (
               <div
                 key={index}
-                className="w-16 sm:w-16 md:w-22 lg:w-32 flex flex-col items-center"
+                className="w-14 sm:w-16 md:w-20 lg:w-32 flex flex-col items-center"
               >
                 <img
                   src={vendor.logo}
                   alt={`${vendor.name} logo`}
-                  className="w-full h-[4rem] object-contain"
+                  className="w-full h-auto max-h-12 sm:max-h-16 md:max-h-20 lg:max-h-24 object-contain"
                 />
               </div>
             ))}

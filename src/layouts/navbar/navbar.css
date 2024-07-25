@@ -1,4 +1,21 @@
-.navbar {
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20; /* Make sure it's above other content */
+  background-color: white; /* You can customize this */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+/* .navbar {
     position: -webkit-sticky; 
     position: sticky;
     position: fixed;
@@ -50,4 +67,3 @@
     background: white;
     border: 2px;
   } */
-  
