@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/whiteLogo.svg";
 import BlackLogo from "../../assets/foodblack.svg";
 import Cart from "../../assets/shopping-cart.svg";
+import { useCart } from '../../Context/CartContext';
 import './navbar.css'
 const Navbar = () => {
+  const { cartCount } = useCart();
+
   const [isGetStartedClicked, setIsGetStartedClicked] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -50,9 +53,10 @@ const Navbar = () => {
           <button
             className={`${
               isScrolled ? "bg-[#F08F00]" : "bg-[#F08F00]"
-            } p-1 sm:p-2  rounded-full`}
+            } p-1 sm:p-2  rounded-full flex flex-row justify-items-center text-white`}
           >
             <img src={Cart} alt="Cart" className="h-5 w-5 sm:h-6 sm:w-6" />
+            <p>{cartCount}</p>
           </button>
           <div className="relative">
             <button

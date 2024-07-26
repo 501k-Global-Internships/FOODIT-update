@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import deleImg from '../../assets/food-1.svg';
 import trailsImg from '../../assets/food-2.svg';
+import { useCart } from '../../Context/CartContext';
 
 const FoodMenu = () => {
+
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart();
+  };
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [currentIndex, setCurrentIndex] = useState(0);
   const categories = ['All', 'Swallow', 'BreakFast', 'Cereals', 'Brunch', 'Noodles', 'Beans', 'Frenchie', 'Chinese'];
@@ -94,7 +102,7 @@ const FoodMenu = () => {
                   <span className="bg-[#D9BD8B] text-white text-xs px-2 py-1 rounded-full">{item.tag}</span>
                 </div>
                 <p className="text-gray-600 text-xs mb-4 text-center">{item.description}</p>
-                <button className="bg-[#F08F00] text-white py-2 px-4 rounded-full hover:bg-[#E07F00] text-sm">
+                <button onClick={handleAddToCart} className="bg-[#F08F00] text-white py-2 px-4 rounded-full hover:bg-[#E07F00] text-sm">
                   <span className="text-lg mr-1">+</span> Add to cart
                 </button>
               </div>
