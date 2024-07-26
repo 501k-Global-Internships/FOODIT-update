@@ -14,7 +14,7 @@ export default function Vendornav() {
 
   const { cartCount } = useCart();
   return (
-    <nav className={`navbar bg-opacity-50 backdrop-blur-md px-20 flex flex-row justify-between items-center `}>
+    <nav className={`navbar bg-opacity-50  backdrop-blur-md px-20 flex flex-row justify-between items-center `}>
       <div className='flex flex-row gap-2 items-center'>
         <button onClick={handleSignupButton} className='w-[44px] h-[44px] rounded-[26px] bg-white place-content-center px-2'>
             <IoMdArrowRoundBack className={`w-[24px] h-[24px]`} />
