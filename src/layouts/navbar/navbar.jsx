@@ -27,8 +27,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 lg:px-[4rem] right-0 z-50 transition-all duration-300 ${
+    <div
+      className={`navs fixed top-0 left-0 lg:px-[4rem] right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-white shadow-md" : "bg-transparent"
       }`}
     >
@@ -97,7 +97,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
