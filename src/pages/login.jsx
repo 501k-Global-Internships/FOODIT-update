@@ -20,8 +20,8 @@ export default function Login() {
   return (
     <div className=''>
         <NAVBAR />
-        <div className=' w-[100%] h-[100%] min-h-[100vh] flex justify-center items-center'>
-            <div className=' bg-white w-[100%] h-[100%] min-h-[100vh] flex flex-row justify-end  '>
+        <div className=' w-[100%] h-[100%] min-h-[100vh]'>
+            <div className=' bg-white w-[100%] h-[100%] min-h-[100vh] flex flex-row gap-36 justify-end  '>
                 <div className=' bg-white h-[100%] w-[547px] min-h-[100vh] flex flex-row justify-center items-center'>
                     <form action="">
 
