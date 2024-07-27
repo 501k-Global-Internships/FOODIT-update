@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`navs transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"}  h-[100px]`}
+      className={`navs transition-all duration-300 ${isScrolled ? "bg-transparent" : "bg-white shadow-md"}  h-[100px]`}
     >
       <div className="container mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
         <img
