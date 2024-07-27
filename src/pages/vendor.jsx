@@ -3,7 +3,8 @@ import VENDORNAV from '../layouts/navbar/vendornav'
 import HERO from '../components/vendorUser/hero'
 import FOOD from '../components/vendorUser/food'
 import TESTIMONY from '../components/vendorUser/testimony'
-import FOOTER from '../layouts/footer/vendorfooter'
+import Footer from '../layouts/footer/footer'
+
 
 export default function vendor() {
   return (
@@ -12,7 +13,7 @@ export default function vendor() {
         <HERO />
         <FOOD />
         <TESTIMONY />
-        <FOOTER />
+        <Footer />
     </div>
   )
 }
