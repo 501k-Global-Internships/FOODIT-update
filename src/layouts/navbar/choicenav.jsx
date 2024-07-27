@@ -30,7 +30,7 @@ export default function Choicenav() {
       {showSearch && (
         <>
           <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10 '></div>
-          <div className='absolute top-full left-0 right-0 mt-2 bg-white rounded-[26px] shadow-lg p-4 z-20'>
+          <div className='absolute top-full left-0 right-0 mt-2 bg-transparent rounded-[26px] shadow-lg p-4 z-20'>
             <div className='flex justify-between items-center mb-4'>
               <input 
                 type='text' 
