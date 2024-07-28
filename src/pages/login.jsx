@@ -23,7 +23,7 @@ export default function Login() {
         <div className=' w-[100%] h-[100%] min-h-[100vh]'>
             <div className=' bg-white w-[100%] h-[100%] min-h-[100vh] flex flex-row gap-36 justify-end  '>
                 <div className=' bg-white h-[100%] w-[547px] min-h-[100vh] flex flex-row justify-center items-center'>
-                    <form action="">
+                    <form>
 
                         <div onClick={handleSignupButton} className='flex flex-row items-center mb-2'>
                             <IoMdArrowRoundBack className='w-[28px] h-[28px] text-[#78667E] cursor-pointer' />
