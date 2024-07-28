@@ -20,8 +20,8 @@ export default function Login() {
   return (
     <div className=''>
         <NAVBAR />
-        <div className=' w-[100%] h-[100%] min-h-[100vh]'>
-            <div className=' bg-white w-[100%] h-[100%] min-h-[100vh] flex flex-row gap-36 justify-end  '>
+        <div className=' w-[100%] h-[100%]'>
+            <div className=' bg-white w-[100%] h-[100%] flex flex-row gap-16 justify-end  '>
                 <div className=' bg-white h-[100%] w-[547px] min-h-[100vh] flex flex-row justify-center items-center'>
                     <form>
 
@@ -52,7 +52,7 @@ export default function Login() {
                 </div>
 
 
-                <div className=' bg-white h-[100%] w-[625px] min-h-[0vh] flex justify-center items-center '>
+                <div className=' bg-white h-[100%] w-[50%] flex justify-center items-center '>
                     <img src={IMAGE3} alt=""  className='w-[100%] h-[100vh]'/>
                    
                 </div>
