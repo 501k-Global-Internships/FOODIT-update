@@ -16,10 +16,10 @@ export default function Choicenav() {
   return (
     <div className='relative'>
       <ul className={`flex flex-row bg-[#1A1A1A26] text-white justify-evenly w-[744px] h-[53px] rounded-[26px] items-center font-mont mt-40`}>
-        <NavLink to='/foodnearby' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[230px] hover:text-center hover:place-content-center text-white`}>FOOD NEAR BY</NavLink>
-        <NavLink to='/toprated' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[230px] hover:text-center hover:place-content-center text-white`}>TOP FOOD</NavLink>
+        <NavLink to='/foodnearby' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[200px] hover:text-center hover:place-content-center text-white`}>FOOD NEAR BY</NavLink>
+        <NavLink to='/toprated' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[160px] hover:text-center hover:place-content-center text-white`}>TOP FOOD</NavLink>
         <NavLink to='/frequentlyorder' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[230px] hover:text-center hover:place-content-center text-white`}>FREQUENTLY ORDERED</NavLink>
-        <NavLink to='/supriseme' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[230px] hover:text-center hover:place-content-center text-white`}>SUPRISE ME</NavLink>
+        <NavLink to='/supriseme' className={`hover:border-[1px] hover:h-[34px] hover:bg-[#E58D3A] hover:rounded-[15px] hover:w-[180px] hover:text-center hover:place-content-center text-white`}>SUPRISE ME</NavLink>
         <button 
           onClick={handleSearchToggle} 
           className='w-[54px] h-[50px] rounded-[23px] bg-[#E58D3A] place-content-center px-3'>
@@ -30,7 +30,7 @@ export default function Choicenav() {
       {showSearch && (
         <>
           <div className='fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10 '></div>
-          <div className='absolute top-full left-0 right-0 mt-2 bg-white rounded-[26px] shadow-lg p-4 z-20'>
+          <div className='absolute top-full left-0 right-0 mt-2 bg-transparent rounded-[26px] shadow-lg p-4 z-20'>
             <div className='flex justify-between items-center mb-4'>
               <input 
                 type='text' 

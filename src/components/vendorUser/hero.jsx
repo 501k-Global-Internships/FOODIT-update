@@ -4,7 +4,7 @@ import { IoSearchSharp } from "react-icons/io5";
 export default function hero() {
   return (
     <div className='vendorbg w-[100%] h-[789px] flex flex-col justify-center items-center gap-10'>
-       <div className='pr-20'>
+       <div className='pr-56'>
             <h1 className='font-mont font-black text-white text-[127px] w-[959px]'>Eat<span className='font-mont font-black text-[#E58D3A] text-[127px]'> Well,</span> Click <span className='font-mont font-black text-[#E58D3A] text-[127px]'> Well.</span></h1>
             <p className='font-mont font-black text-[white] text-[21px] w-[569px]'>Welcome to <span className='font-mont font-black text-[#E58D3A] text-[21px]'>DELE CANTEEN</span>, where you get the best African Dishes and Locals </p>
        </div>

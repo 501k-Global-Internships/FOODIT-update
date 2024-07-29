@@ -9,6 +9,11 @@ import HomePage from '../../layouts/homePage/homePage'
 import FoodBuddy from '../../layouts/foodBuddy/foodBuddy'
 
 
+import FoodBuddyDirectory from '../../layouts/foodBuddyDirectory/foodBuddyDirectory'
+import Footer from '../../layouts/footer/footer'
+
+
+
 
 export default function landingpage() {
   return (
@@ -22,6 +27,7 @@ export default function landingpage() {
        <Testimonials />
        <PersonalizedWebsiteSection />
        <NewsletterSignup />
+       <Footer />
     </div>
   )
 }

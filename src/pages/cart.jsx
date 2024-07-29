@@ -62,6 +62,7 @@ export default function Cart() {
       </div>
     ));
 
+
   return (
     <div>
       <NAV />
@@ -104,6 +105,74 @@ export default function Cart() {
           </button>
         </div>
       </div>
+
+
+  return (
+    <div>
+      <NAV />
+      <div className="w-[100%] h-[100%] min-h-[100vh] flex flex-col justify-center items-center nextbg">
+        <div className="w-[100%] h-[100%] flex flex-row justify-center px-10  ">
+          <Swiper
+            pagination={pagination}
+            modules={[Pagination]}
+            slidesPerView={1}
+            spaceBetween={15}
+            className="mySwiper text-white "
+          >
+            {Array.from(
+              { length: Math.ceil(items.length / 3) },
+              (_, slideIndex) => (
+                <SwiperSlide key={slideIndex} className=" mt-36 pb-20">
+                  <div className="grid grid-cols-1 justify-center place-items-center gap-5">
+                    {renderItems(slideIndex)}
+                  </div>
+                </SwiperSlide>
+              )
+            )}
+          </Swiper>
+        </div>
+        <div className="flex flex-row justify-between gap-[600px] items-center pb-10 pt-10 z-50">
+          <div className="flex flex-col">
+            <p className="text-[white] font-mont font-bold text-[19px]">
+              Total
+            </p>
+            <h2 className="text-[#E58D3A] font-mont font-semibold text-[41px]">
+              # 92,500
+            </h2>
+          </div>
+
+          <button className="w-[184px] h-[65px] bg-[#1158E3] rounded-[15px] text-center text-white font-mont font-bold text-[19px]">
+            Pay
+          </button>
+        </div>
+      </div>
+
+      <style jsx>{`
+        .swiper-pagination {
+          buttom: 20px  
+          text-align: center;
+          z-index: 1000;
+          color: red;
+          
+        }
+
+        .swiper-pagination-bullet {
+          width: 50px; 
+          height: 50px; 
+          background: #F7F7F7;
+          opacity: 1; 
+          border-radius: 50%; 
+          margin: 0 5px; 
+          transition: background 0.3s;
+          place-content: center;
+        }
+
+        .swiper-pagination-bullet-active {
+          background: #ff5733 
+          transform: scale(1.2);
+        }
+      `}</style>
+
     </div>
   );
 }
