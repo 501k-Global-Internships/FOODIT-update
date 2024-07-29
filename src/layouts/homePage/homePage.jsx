@@ -5,12 +5,43 @@ import vegPlate from "../../assets/vegetableImg.svg";
 import bgImg from "../../assets/bgimg.png";
 import waveImg from "../../assets/wave.png";
 import "./homePage.css";
+import { useEffect, useState } from "react";
+
 
 const HomePage = () => {
+  const [eatWellOpacity, setEatWellOpacity] = useState(0);
+  const [clickWellOpacity, setClickWellOpacity] = useState(0);
+
+  useEffect(() => {
+    const animationCycle = () => {
+      setEatWellOpacity(0);
+      setTimeout(() => setEatWellOpacity(1), 1500);
+      setClickWellOpacity(0);
+
+      setTimeout(() => {
+        setClickWellOpacity(0.2);
+      }, 3000);
+
+      setTimeout(() => {
+        setClickWellOpacity(1);
+      }, 5000);
+
+      // Both completely fade out after 1.5 more seconds
+      setTimeout(() => {
+        setEatWellOpacity(0);
+        setClickWellOpacity(0);
+      }, 9500);
+    };
+
+    animationCycle();
+    const interval = setInterval(animationCycle, 11000); // Total cycle duration
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background image */}
-      {/* <div></div> */}
       <div
         className="absolute inset-0"
         style={{
@@ -38,12 +69,12 @@ const HomePage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between mt-12">
             <div className="mb-8 md:mb-0">
               <h1 className="custom-heading text-7xl md:text-9xl mb-4">
-                <span className="text-white">Eat </span>
-                <span className="text-[#F08F00]">well,</span>
+                <span className="text-white transition-opacity duration-1500" style={{ opacity: eatWellOpacity }}>Eat </span>
+                <span className="text-[#F08F00] transition-opacity duration-1500" style={{ opacity: eatWellOpacity }}>well,</span>
               </h1>
               <h1 className="custom-heading text-7xl md:text-9xl mb-[2.5rem]">
-                <span className="text-white">Click </span>
-                <span className="text-[#F08F00]">well.</span>
+                <span className="text-white transition-opacity duration-1500" style={{ opacity: clickWellOpacity }}>Click </span>
+                <span className="text-[#F08F00] transition-opacity duration-1500" style={{ opacity: clickWellOpacity }}>well.</span>
               </h1>
               <p className="text-[1.2rem] mb-6 text-white">
                 Food is a Universal Language. And Nigeria is home <br />
@@ -71,7 +102,7 @@ const HomePage = () => {
           <img
             src={vegPlate}
             alt="Plate"
-            className="lg:w-48 lg:h-48 w-40 h-40 absolute right-[10%] top-[5.8rem] transform -translate-y-1/2 z-20 high-spin-float-animation"
+            className="lg:w-48 lg:h-48 w-40 h-40 absolute right-[10%] top-[.1rem] transform -translate-y-1/2 z-20 high-spin-float-animation"
           />
         </div>
       </div>

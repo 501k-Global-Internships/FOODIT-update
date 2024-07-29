@@ -6,10 +6,9 @@ import { useCart } from "../../Context/CartContext";
 import "./navbar.css";
 
 const Navbar = () => {
-  const { cartCount } = useCart();
+  const { cartCount, hasItems } = useCart();
   const [isGetStartedClicked, setIsGetStartedClicked] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isCartClicked, setIsCartClicked] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -31,7 +30,8 @@ const Navbar = () => {
   };
 
   const handleCartClick = () => {
-    setIsCartClicked(!isCartClicked);
+    // Add any cart click functionality here
+    // For example, open a cart modal
   };
 
   const toggleMobileMenu = () => {
@@ -67,10 +67,14 @@ const Navbar = () => {
         <div className="flex items-center space-x-2 sm:space-x-4">
           <button
             onClick={handleCartClick}
-            className="bg-[#F08F00] p-1 sm:p-2 rounded-full flex flex-row justify-items-center text-white"
+            className="bg-[#F08F00] p-1 sm:p-2 rounded-full flex flex-row justify-items-center text-white relative"
           >
             <img src={Cart} alt="Cart" className="h-5 w-5 sm:h-6 sm:w-6" />
-            {isCartClicked && <p>{cartCount}</p>}
+            {hasItems && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                {cartCount}
+              </span>
+            )}
           </button>
           <div className="relative hidden md:block">
             <button

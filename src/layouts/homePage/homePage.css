@@ -1,71 +1,16 @@
-/* .wave-container {  
-    height: 100vh;
-    background-image: url(../../assets/bgimg.svg);
-    position: relative;
-  }
-  
-  .wave-container::before {   
-    content: "";
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    bottom: -0.3%;
-    left: 0;
-    background-size: auto;
-    background-repeat: repeat no-repeat;
-    background-position: 20vw bottom;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 128' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 21L33 18C82 12 133 14 200 28C267 42 333 64 400 67C467 71 533 57 600 39C667 21 733 0 800 0C867 0 933 21 1000 28C1067 35 1133 28 1167 25L1200 21V128H1167C1133 128 1067 128 1000 128C933 128 867 128 800 128C733 128 667 128 600 128C533 128 467 128 400 128C333 128 267 128 200 128C133 128 67 128 33 128H0V22.332Z' fill='%23f08f00'/></svg>");
-  }
-  
-  @media(max-width:850px) {
-    .wave-container::before {    
-      height: 40px
-    }  
-  }
-  
-  .wave2-container {  
-    height: 70vh;
-    background-color: #F08F00;
-    position: relative;
-  }
-  
-  .wave2-container::before {   
-    content: "";
-    width: 100%;
-    height: 80px;
-    position: absolute;
-    bottom: -0.3%;
-    left: 0;
-    background-size: auto;
-    background-repeat: repeat no-repeat;
-    background-position: 20vw bottom;
-    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200 128' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 21L33 18C82 12 133 14 200 28C267 42 333 64 400 67C467 71 533 57 600 39C667 21 733 0 800 0C867 0 933 21 1000 28C1067 35 1133 28 1167 25L1200 21V128H1167C1133 128 1067 128 1000 128C933 128 867 128 800 128C733 128 667 128 600 128C533 128 467 128 400 128C333 128 267 128 200 128C133 128 67 128 33 128H0V22.332Z' fill='%23ffffff'/></svg>");
-  }
-  
-  @media(max-width:850px) {
-    .wave2-container::before {    
-      height: 40px
-    }  
-  } */
-  
+
   
   @keyframes high-spin-float {
     0%, 100% {
       transform: translateY(0) rotate(0deg);
     }
     25% {
-      transform: translateY(-17.6rem) rotate(360deg);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(0);
+      transform: translateY(-12.8rem) rotate(360deg);
     }
   }
   
   .high-spin-float-animation {
-    animation: high-spin-float 12s ease-in-out infinite;
+    animation: high-spin-float 20s ease-in-out infinite;
   }
 
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bebas+Neue&display=swap');
@@ -86,4 +31,8 @@ body {
 
 .capitalize-first::first-letter {
   text-transform: uppercase;
+}
+
+.custom-heading span {
+  transition: opacity 1.5s ease;
 }

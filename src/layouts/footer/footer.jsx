@@ -16,7 +16,7 @@ const Footer = () => {
        
         <div className="mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-[2rem]">Company</h3>
-          <ul>
+          <ul className='text-sm'>
             <li className='mb-[.6rem]'><Link to="/" className="hover:text-[#F08F00]">Home</Link></li>
             <li className='mb-[.6rem]'><Link to="/" className="hover:text-[#F08F00]">About Us</Link></li>
             <li><Link to="/" className="hover:text-[#F08F00]">FAQs</Link></li>
@@ -25,7 +25,7 @@ const Footer = () => {
        
         <div className="mb-6 md:mb-0">
           <h3 className="text-lg font-semibold mb-[2rem]">Services</h3>
-          <ul>
+          <ul className='text-sm'>
             <li className='mb-[.6rem]'><Link to="/" className="hover:text-[#F08F00]">Menu</Link></li>
             <li className='mb-[.6rem]'><Link to="/" className="hover:text-[#F08F00]">Vendors List</Link></li>
             <li className='mb-[.6rem]'><Link to="/" className="hover:text-[#F08F00]">Support</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
        
         <div>
           <h3 className="text-lg font-semibold mb-[2.7rem]">Socials</h3>
-          <ul>
+          <ul className='text-sm'>
             <li className="flex items-center gap-3 mb-[.7rem]">
               <img src={InstagramIcon} alt="Instagram" className="w-4 h-4" />
               <Link to="/" className="hover:text-[#F08F00]">Instagram</Link>
