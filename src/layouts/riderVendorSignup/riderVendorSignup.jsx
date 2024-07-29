@@ -5,13 +5,13 @@ import './riderVendorSignup.css';
 
 const RiderVendorSignup = () => {
   return (
-    <div className="w-full overflow-hidden relative">
+    <div className="w-full overflow-hidden relative content-wrapper">
       {/* Top scrolling text */}
       <div className="py-4 whitespace-nowrap overflow-hidden">
         <div className="animate-marquee-slow inline-block">
           {[...Array(10)].map((_, index) => (
-            <span key={index} className="text-[#F08F00] text-3xl font-bold mr-8">
-              Join Our Riders & Vendors
+            <span key={index} className="text-[#F08F00] text-3xl font-bold mr-8 scrolling-text">
+              join Our Riders & Vendors
             </span>
           ))}
         </div>
@@ -50,8 +50,8 @@ const RiderVendorSignup = () => {
       <div className="py-4 whitespace-nowrap overflow-hidden">
         <div className="animate-marquee-slow inline-block">
           {[...Array(10)].map((_, index) => (
-            <span key={index} className="text-[#F08F00] text-3xl font-bold mr-8">
-              Join Our Riders & Vendors
+            <span key={index} className="text-[#F08F00] text-3xl font-bold mr-8 scrolling-text">
+              join Our Riders & Vendors
             </span>
           ))}
         </div>

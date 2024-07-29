@@ -11,6 +11,7 @@ import TOPRATED from './pages/toprated'
 import VENDOR from './pages/vendor'
 import SUPRISEME from './pages/supriseme'
 import NUMBERPAGE from './pages/numberpage'
+import FoodBuddyDirectory from './pages/foodBuddyDirectory';
 
 export default function Router() {
     const routes = useRoutes([
@@ -74,7 +75,11 @@ export default function Router() {
             element: <SUPRISEME />,
             index: true,
           },
-
+          {
+            path: "foodBuddyDirectory",
+            element: <FoodBuddyDirectory />,
+            index: true,
+          },
           {
             path: "numberpage",
             element: <NUMBERPAGE />,

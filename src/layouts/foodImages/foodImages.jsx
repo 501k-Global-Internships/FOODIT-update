@@ -5,24 +5,24 @@ import Rice from "../../assets/riceImg.svg";
 
 const FoodImages = () => {
   return (
-    <div className="relative w-[12rem] h-[14rem] sm:w-[19rem] sm:h-[21rem]">
-      <div className="absolute left-0 top-2/4 transform -translate-y-2/4">
+    <div className="relative w-[14rem] h-[16rem] sm:w-[20rem] sm:h-[22rem]">
+      <div className="absolute lg:left-[7.9rem] left-[4rem] top-[8rem] transform -translate-y-2/4">
         <img
           src={Season}
           alt="Season"
           className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full"
         />
       </div>
-      
-      <div className="absolute top-0 right-0">
+     
+      <div className="absolute lg:top-[-2rem] top-[-1rem] right-[-35%]">
         <img
           src={Chicken}
           alt="Chicken"
           className="w-32 h-32 sm:w-40 sm:h-40 object-cover rounded-full"
         />
       </div>
-      
-      <div className="absolute bottom-0 right-0">
+     
+      <div className="absolute lg:bottom-[4.3rem] bottom-[1.6rem] right-[-35%]">
         <img
           src={Rice}
           alt="Rice"

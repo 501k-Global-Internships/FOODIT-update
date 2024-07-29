@@ -54,7 +54,7 @@ const FoodMenu = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 flex flex-col items-center mt-[30rem]">
+    <div className="container mx-auto px-4 py-8 flex flex-col items-center">
       <div className="mb-6">
         <button className="bg-[#635F5F] text-white px-4 py-2 rounded-full flex items-center">
           FOOD NEAR BY <ChevronDown className="ml-2" />

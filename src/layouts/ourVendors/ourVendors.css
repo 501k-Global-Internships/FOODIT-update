@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.our-vendors-container {
+  font-family: 'Bebas Neue', sans-serif;
+  padding-top: 80px;
+  position: relative;
+  z-index: 1; 
+}
+
+
