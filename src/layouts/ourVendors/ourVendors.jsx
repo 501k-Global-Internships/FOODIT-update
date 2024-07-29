@@ -4,6 +4,7 @@ import pizzahubLogo from "../../assets/pizzahub.svg";
 import ubereatLogo from "../../assets/ubereat.svg";
 import nandosLogo from "../../assets/nandos.svg";
 import wendysLogo from "../../assets/wendys.svg";
+import './ourVendors.css'
 
 const OurVendors = () => {
   const vendors = [
@@ -15,7 +16,7 @@ const OurVendors = () => {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="our-vendors-container relative w-full overflow-hidden">
       {/* Wave SVG */}
       <div className="relative">
         <svg

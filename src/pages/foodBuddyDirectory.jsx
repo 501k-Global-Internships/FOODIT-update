@@ -1,14 +1,14 @@
 import React from "react";
 import { ArrowLeft} from "lucide-react";
-import dominosImage from "../../assets/dominions.svg";
-import trialsImage from "../../assets/trails.svg";
-import deleImage from "../../assets/dele.svg";
-import majorKayImage from "../../assets/majorKay.svg";
-import madukewiImage from "../../assets/madukewi.svg";
-import molarikeImage from "../../assets/molarike.svg";
-import licksImage from "../../assets/licks.svg";
-import tintinkoImage from "../../assets/tintinko.svg";
-import hugoImage from "../../assets/hugo.svg";
+import dominosImage from "../../src/assets/dominions.svg";
+import trialsImage from "../../src/assets/trails.svg";
+import deleImage from "../../src/assets/dele.svg";
+import majorKayImage from "../../src/assets/majorKay.svg";
+import madukewiImage from "../../src/assets/madukewi.svg";
+import molarikeImage from "../../src/assets/molarike.svg";
+import licksImage from "../../src/assets/licks.svg";
+import tintinkoImage from "../../src/assets/tintinko.svg";
+import hugoImage from "../../src/assets/hugo.svg";
 import { Link } from "react-router-dom";
 
 const VendorCard = ({ name, streetNumber, location, image }) => (
@@ -103,7 +103,7 @@ const FoodBuddyDirectory = () => {
   ];
 
   return (
-    <div className="bg-[#1E1E1E] py-[4rem]">
+    <div className="bg-[#131211] py-[4rem]">
       <div className=" mb-[4rem]">
         <div className="flex items-center justify-center text-center gap-3 mb-2">
           <Link to="/" className="mr-4">

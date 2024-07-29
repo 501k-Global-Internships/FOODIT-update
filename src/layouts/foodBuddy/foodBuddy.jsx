@@ -1,12 +1,13 @@
 
 import Bike from "../../assets/bike.svg";
+import './foodBuddy.css';
 
 const FoodBuddy = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="flex flex-col md:flex-row items-center gap-7 justify-between">
         <div className="w-full md:w-2/3 mb-8 md:mb-0">
-          <h1 className=" font-bold mb-4">
+        <h1 className="custom-heading font-extrabold mb-4">
             <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-8xl">
               Introducing
             </span>
@@ -15,7 +16,7 @@ const FoodBuddy = () => {
               your
             </span>
             <br />
-            <span className="text-[#F08F00] text-5xl md:text-6xl lg:text-[5.3rem]">
+            <span className="text-[#F08F00] text-5xl md:text-6xl lg:text-[5.3rem] uppercase">
               FOODBUDDY
             </span>
           </h1>

@@ -1,4 +1,4 @@
-.wave-container {  
+/* .wave-container {  
     height: 100vh;
     background-image: url(../../assets/bgimg.svg);
     position: relative;
@@ -46,20 +46,44 @@
     .wave2-container::before {    
       height: 40px
     }  
-  }
+  } */
   
-  @keyframes floatUpDown {
-    0% {
-      top: 0%;
+  
+  @keyframes high-spin-float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-17.6rem) rotate(360deg);
     }
     50% {
-      top: -17%; 
+      transform: translateY(0);
     }
-    100% {
-      top: 0%;
+    75% {
+      transform: translateY(0);
     }
   }
   
-  .floating-img {
-    animation: floatUpDown 10s ease-in-out infinite;
+  .high-spin-float-animation {
+    animation: high-spin-float 12s ease-in-out infinite;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bebas+Neue&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-family:  sans-serif;
+}
+
+.custom-heading {
+  font-weight: 900;
+  text-transform: lowercase;
+}
+
+.custom-heading::first-letter {
+  text-transform: uppercase;
+}
+
+.capitalize-first::first-letter {
+  text-transform: uppercase;
+}
