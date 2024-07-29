@@ -10,6 +10,7 @@ const HomePage = () => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
       {/* Background image */}
+      {/* <div></div> */}
       <div
         className="absolute inset-0"
         style={{
