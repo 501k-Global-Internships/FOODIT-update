@@ -17,6 +17,8 @@ export default function Login() {
     navigate('/foodnearby');
   }
 
+
+
   return (
     <div className=''>
         <NAVBAR />
@@ -43,7 +45,7 @@ export default function Login() {
                         </label>
 
                         <div className='flex flex-col justify-center items-center pb-5'>
-                            <NavLink to='' className='text-[#F6821F] font-medium font-mont text-[18px]'>Forgotten Password</NavLink>
+                            <NavLink to='/forgetpassword' className='text-[#F6821F] font-medium font-mont text-[18px]'>Forgotten Password</NavLink>
                             <p className='text-black font-medium font-mont text-[18px]'>Don't have an account?<NavLink to='/signup' className=' font-medium font-mont text-[18px] text-[#F6821F]'>Sign Up</NavLink></p>
                         </div>
 
