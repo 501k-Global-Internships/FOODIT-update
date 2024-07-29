@@ -65,87 +65,43 @@ export default function Cart() {
 
   return (
     <div>
-      <NAV />
-      <div className="w-[100%] h-[100%] min-h-[130vh] flex flex-col justify-center items-center nextbg">
-        <div className="w-[100%] h-[100%] min-h-[130vh] flex flex-row justify-center px-10 ">
-          <Swiper
-            pagination={pagination}
-            modules={[Pagination]}
-            slidesPerView={1}
-            spaceBetween={15}
-            className="mySwiper text-white"
-          >
-            {Array.from(
-              { length: Math.ceil(items.length / 3) },
-              (_, slideIndex) => (
-                <SwiperSlide
-                  key={slideIndex}
-                  className="flex justify-center items-center gap-5 mt-28 "
-                >
-                  <div className="flex flex-col gap-5 justify-center items-center">
-                    {renderItems(slideIndex)}
-                  </div>
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
-        </div>
-        <div className="flex flex-row justify-between gap-[600px] items-center relative bottom-20">
-          <div className="flex flex-col">
-            <p className="text-[white] font-mont font-bold text-[19px]">
-              Total
-            </p>
-            <h2 className="text-[#E58D3A] font-mont font-semibold text-[41px]">
-              # 92,500
-            </h2>
-          </div>
-
-          <button className="w-[184px] h-[65px] bg-[#1158E3] rounded-[15px] text-center text-white font-mont font-bold text-[19px]">
-            Pay
-          </button>
-        </div>
+    <NAV />
+    <div className="w-[100%] h-[100%] min-h-[100vh] flex flex-col justify-center items-center nextbg">
+      <div className="w-[100%] h-[100%] flex flex-row justify-center px-10  ">
+        <Swiper
+          pagination={pagination}
+          modules={[Pagination]}
+          slidesPerView={1}
+          spaceBetween={15}
+          className="mySwiper text-white "
+        >
+          {Array.from(
+            { length: Math.ceil(items.length / 3) },
+            (_, slideIndex) => (
+              <SwiperSlide key={slideIndex} className=" mt-36 pb-20">
+                <div className="grid grid-cols-1 justify-center place-items-center gap-5">
+                  {renderItems(slideIndex)}
+                </div>
+              </SwiperSlide>
+            )
+          )}
+        </Swiper>
       </div>
-
-
-  return (
-    <div>
-      <NAV />
-      <div className="w-[100%] h-[100%] min-h-[100vh] flex flex-col justify-center items-center nextbg">
-        <div className="w-[100%] h-[100%] flex flex-row justify-center px-10  ">
-          <Swiper
-            pagination={pagination}
-            modules={[Pagination]}
-            slidesPerView={1}
-            spaceBetween={15}
-            className="mySwiper text-white "
-          >
-            {Array.from(
-              { length: Math.ceil(items.length / 3) },
-              (_, slideIndex) => (
-                <SwiperSlide key={slideIndex} className=" mt-36 pb-20">
-                  <div className="grid grid-cols-1 justify-center place-items-center gap-5">
-                    {renderItems(slideIndex)}
-                  </div>
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
+      <div className="flex flex-row justify-between gap-[600px] items-center pb-10 pt-10 z-50">
+        <div className="flex flex-col">
+          <p className="text-[white] font-mont font-bold text-[19px]">
+            Total
+          </p>
+          <h2 className="text-[#E58D3A] font-mont font-semibold text-[41px]">
+            # 92,500
+          </h2>
         </div>
-        <div className="flex flex-row justify-between gap-[600px] items-center pb-10 pt-10 z-50">
-          <div className="flex flex-col">
-            <p className="text-[white] font-mont font-bold text-[19px]">
-              Total
-            </p>
-            <h2 className="text-[#E58D3A] font-mont font-semibold text-[41px]">
-              # 92,500
-            </h2>
-          </div>
 
-          <button className="w-[184px] h-[65px] bg-[#1158E3] rounded-[15px] text-center text-white font-mont font-bold text-[19px]">
-            Pay
-          </button>
-        </div>
+        <button className="w-[184px] h-[65px] bg-[#1158E3] rounded-[15px] text-center text-white font-mont font-bold text-[19px]">
+          Pay
+        </button>
       </div>
+    </div>
 
       <style jsx>{`
         .swiper-pagination {
@@ -172,7 +128,6 @@ export default function Cart() {
           transform: scale(1.2);
         }
       `}</style>
-
-    </div>
+     </div>
   );
 }
