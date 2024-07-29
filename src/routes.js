@@ -11,6 +11,10 @@ import TOPRATED from './pages/toprated'
 import VENDOR from './pages/vendor'
 import SUPRISEME from './pages/supriseme'
 import NUMBERPAGE from './pages/numberpage'
+import FORGETPASSWORD from './pages/forgetpassword'
+import CONFIRMPASSWORD from './pages/confirmpassword'
+import NEWPASSWORD from './pages/newpassword'
+import PASSWORDCONFIRMATION from './pages/passwordconfirmation'
 
 export default function Router() {
     const routes = useRoutes([
@@ -78,6 +82,30 @@ export default function Router() {
           {
             path: "numberpage",
             element: <NUMBERPAGE />,
+            index: true,
+          },
+
+          {
+            path: "forgetpassword",
+            element: <FORGETPASSWORD />,
+            index: true,
+          },
+
+          {
+            path: "confirmpassword",
+            element: <CONFIRMPASSWORD />,
+            index: true,
+          },
+
+          {
+            path: "newpassword",
+            element: <NEWPASSWORD />,
+            index: true,
+          },
+
+          {
+            path: "passwordconfirmation",
+            element: <PASSWORDCONFIRMATION />,
             index: true,
           },
         
