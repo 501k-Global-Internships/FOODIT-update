@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/whiteLogo.svg";
 import Cart from "../../assets/shopping-cart.svg";
 import { useCart } from "../../Context/CartContext";
@@ -7,10 +7,11 @@ import "./navbar.css";
 
 const Navbar = () => {
   const { cartCount, hasItems } = useCart();
-  const [isGetStartedClicked, setIsGetStartedClicked] = useState(false);
+  const [isLoginMode, setIsLoginMode] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +26,12 @@ const Navbar = () => {
   }, []);
 
   const handleGetStartedClick = () => {
-    setIsGetStartedClicked(true);
-    setIsDropdownOpen(!isDropdownOpen);
+    if (isLoginMode) {
+      navigate("/login");
+    } else {
+      setIsLoginMode(true);
+      setIsDropdownOpen(true);
+    }
   };
 
   const handleCartClick = () => {
@@ -80,34 +85,37 @@ const Navbar = () => {
             <button
               onClick={handleGetStartedClick}
               className={`px-3 py-2 sm:px-4 sm:py-3 rounded-full flex items-center justify-center w-32 sm:w-40 text-xs sm:text-sm whitespace-nowrap ${
-                isGetStartedClicked
+                isLoginMode
                   ? "bg-[#FFFFFF] text-[#F8A307] ring-2 ring-[#F8A307]"
                   : "bg-[#F08F00] text-white"
               }`}
             >
               <span className="flex-grow text-center">
-                {isGetStartedClicked ? "Login" : "Get Started"}
+                {isLoginMode ? "Login" : "Get Started"}
               </span>
-              <svg
-                className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M19 9l-7 7-7-7"
-                ></path>
-              </svg>
+              {!isLoginMode && (
+                <svg
+                  className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              )}
             </button>
             {isDropdownOpen && (
               <div className="absolute right-0 mt-2 w-32 sm:w-40">
                 <NavLink
                   to="/signup"
                   className="block w-full text-center px-3 py-2 sm:px-4 sm:py-3 text-xs sm:text-sm bg-[#2562FF] text-white rounded-full ring-2 ring-[#FFFFFF]"
+                  onClick={() => setIsDropdownOpen(false)}
                 >
                   Sign Up
                 </NavLink>
@@ -145,10 +153,19 @@ const Navbar = () => {
           <NavItem text="Become A Vendor" />
           <button
             onClick={handleGetStartedClick}
-            className="mt-4 w-full px-3 py-2 rounded-full text-center text-sm bg-[#F08F00] text-white"
+            className="block mt-4 w-full px-3 py-2 rounded-full text-center text-sm bg-[#F08F00] text-white"
           >
-            Get Started
+            {isLoginMode ? "Login" : "Get Started"}
           </button>
+          {isLoginMode && (
+            <NavLink
+              to="/signup"
+              className="block mt-2 w-full px-3 py-2 rounded-full text-center text-sm bg-[#2562FF] text-white"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Sign Up
+            </NavLink>
+          )}
         </div>
       )}
     </div>
