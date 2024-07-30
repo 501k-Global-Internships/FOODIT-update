@@ -7,16 +7,16 @@ const FoodBuddy = () => {
     <div className="container mx-auto px-4 py-8 max-w-4xl">
       <div className="flex flex-col md:flex-row items-center gap-7 justify-between">
         <div className="w-full md:w-2/3 mb-8 md:mb-0">
-        <h1 className="custom-heading font-extrabold mb-4">
-            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-">
+        <h1 className="custom-heading lg:font-extrabold mb-4">
+            <span className="text-[#635F5F] text-xl md:text-4xl lg:text-6xl">
               Introducing
             </span>
             <br />
-            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-">
+            <span className="text-[#635F5F] text-xl md:text-4xl lg:text-6xl">
               your
             </span>
             <br />
-            <span className="text-[#F08F00] text-5xl md:text-6xl lg:text- uppercase">
+            <span className="text-[#F08F00] text-xl md:text-4xl lg:text-6xl uppercase">
               FOODBUDDY
             </span>
           </h1>
