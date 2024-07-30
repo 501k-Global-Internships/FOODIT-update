@@ -7,7 +7,6 @@ import waveImg from "../../assets/wave.png";
 import "./homePage.css";
 import { useEffect, useState } from "react";
 
-
 const HomePage = () => {
   const [eatWellOpacity, setEatWellOpacity] = useState(0);
   const [clickWellOpacity, setClickWellOpacity] = useState(0);
@@ -26,7 +25,6 @@ const HomePage = () => {
         setClickWellOpacity(1);
       }, 5000);
 
-      // Both completely fade out after 1.5 more seconds
       setTimeout(() => {
         setEatWellOpacity(0);
         setClickWellOpacity(0);
@@ -34,7 +32,7 @@ const HomePage = () => {
     };
 
     animationCycle();
-    const interval = setInterval(animationCycle, 11000); // Total cycle duration
+    const interval = setInterval(animationCycle, 11000);
 
     return () => clearInterval(interval);
   }, []);
@@ -60,23 +58,41 @@ const HomePage = () => {
 
       {/* Content wrapper */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Navbar */}
-        <div className="px-16 py-4">
+        <div className="px-16 py-8">
           <Navbar />
         </div>
         {/* Main content */}
-        <main className="flex-grow px-16 py-8 sm:mt-[3rem]">
-          <div className="flex flex-col md:flex-row items-center justify-between mt-12">
-            <div className="mb-8 md:mb-0">
-              <h1 className="custom-heading text-7xl md:text-9xl mb-4">
-                <span className="text-white transition-opacity duration-1500" style={{ opacity: eatWellOpacity }}>Eat </span>
-                <span className="text-[#F08F00] transition-opacity duration-1500" style={{ opacity: eatWellOpacity }}>well,</span>
+        <main className="flex-grow px-16 py-3 sm:mt-[3rem]">
+          <div className="flex flex-col md:flex-row items-center justify-between mt-2">
+            <div className="md:mb-0">
+              <h1 className="custom-heading text-7xl lg:text-9xl mb-[2.5rem]">
+                <span
+                  className="text-white transition-opacity duration-1500"
+                  style={{ opacity: eatWellOpacity }}
+                >
+                  Eat{" "}
+                </span>
+                <span
+                  className="text-[#F08F00] transition-opacity duration-1500"
+                  style={{ opacity: eatWellOpacity }}
+                >
+                  well,
+                </span>
+                <br />
+                <span
+                  className="text-white transition-opacity duration-1500"
+                  style={{ opacity: clickWellOpacity }}
+                >
+                  Click{" "}
+                </span>
+                <span
+                  className="text-[#F08F00] transition-opacity duration-1500"
+                  style={{ opacity: clickWellOpacity }}
+                >
+                  well.
+                </span>
               </h1>
-              <h1 className="custom-heading text-7xl md:text-9xl mb-[2.5rem]">
-                <span className="text-white transition-opacity duration-1500" style={{ opacity: clickWellOpacity }}>Click </span>
-                <span className="text-[#F08F00] transition-opacity duration-1500" style={{ opacity: clickWellOpacity }}>well.</span>
-              </h1>
-              <p className="text-[1.2rem] mb-6 text-white">
+              <p className="text-[1.2rem] mb-6 mt-10 text-white">
                 Food is a Universal Language. And Nigeria is home <br />
                 to over 1000 of these Languages.
               </p>
@@ -88,12 +104,14 @@ const HomePage = () => {
         {/* Wave image with content */}
         <div className="relative h-[35rem]">
           <img src={waveImg} alt="Wave" className="w-full h-full" />
-          <div className="absolute inset-0 flex flex-col justify-end px-20 py-[10rem]">
-            <div className="ml-20">
-              <div className="bg-yellow-600 text-white font-bold px-4 py-2 rounded-full inline-block mb-4 uppercase">
+          <div className="absolute inset-0 flex flex-col justify-end px-20 py-[9rem]">
+            <div className="lg:ml-[19rem]">
+              {" "}
+              <div className="bg-yellow-600 text-white font-bold px-4 py-4 rounded-2xl inline-block uppercase mt-10 relative">
                 don't know what to eat?
+                <div className="absolute inset-0 rounded-2xl ring-4 ring-[#fab959] ring-opacity-20"></div>
               </div>
-              <p className="text-5xl lg:text-[7rem] font-extrabold leading-none text-white capitalize-first lowercase">
+              <p className="custom-heading text-5xl lg:text-[6.4rem] font-extrabold leading-none text-white capitalize-first lowercase mt-2">
                 Order a <br />
                 quick food
               </p>

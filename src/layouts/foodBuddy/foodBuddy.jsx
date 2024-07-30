@@ -8,15 +8,15 @@ const FoodBuddy = () => {
       <div className="flex flex-col md:flex-row items-center gap-7 justify-between">
         <div className="w-full md:w-2/3 mb-8 md:mb-0">
         <h1 className="custom-heading font-extrabold mb-4">
-            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-8xl">
+            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-">
               Introducing
             </span>
             <br />
-            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-8xl">
+            <span className="text-[#635F5F] text-5xl md:text-6xl lg:text-">
               your
             </span>
             <br />
-            <span className="text-[#F08F00] text-5xl md:text-6xl lg:text-[5.3rem] uppercase">
+            <span className="text-[#F08F00] text-5xl md:text-6xl lg:text- uppercase">
               FOODBUDDY
             </span>
           </h1>

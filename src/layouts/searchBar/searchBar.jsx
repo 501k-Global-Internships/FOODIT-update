@@ -6,7 +6,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search for a food or vendor"
-        className="w-[17rem] px-4 py-2 pl-12 rounded-full bg-[#FFECC930] text-white placeholder-[#EDEDE9]"
+        className="w-[17rem] px-4 py-4 pl-12 rounded-full bg-[#FFECC930] text-white placeholder-[#EDEDE9]"
       />
       <div className="absolute inset-y-0 left-0 pl-2 flex items-center">
         <div className="bg-[#F08F00] p-1.5 rounded-full">

@@ -4,7 +4,7 @@
   }
   
   .animate-marquee-slow {
-    animation: marquee-slow 30s linear infinite;
+    animation: marquee-slow 60s linear infinite;
   }
 
   .wave-pattern {
@@ -22,19 +22,30 @@
 }
 
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bebas+Neue&display=swap');
-
-body {
-  font-family: 'Montserrat', sans-serif;
+@font-face {
+  font-family: 'Hanson Bold';
+  src: url('../../fonts/Hanson-Bold.otf') format('otf'),
+       url('../../fonts/Hanson-Bold.ttf') format('truetype');
+       url:('../../fonts/Hanson-Bold.txt') format('txt');
+  
 }
 
-.font-hanson {
-  font-family: 'Bebas Neue', sans-serif;
+.custom-heading {
+  font-family: 'Hanson Bold', sans-serif;
+  font-weight: bold;
+  text-transform: lowercase;
+  font-style: normal;
+  padding-top: 80px;
+  position: relative;
+  z-index: 1; 
 }
 
+.custom-heading::first-letter {
+  text-transform: uppercase;
+}
 
-.scrolling-text {
-  font-family: 'Bebas Neue', sans-serif;
+.capitalize-first::first-letter {
+  text-transform: uppercase;
 }
 
 .content-wrapper {

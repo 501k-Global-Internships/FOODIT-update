@@ -1,28 +1,28 @@
+@font-face {
+  font-family: 'Hanson Bold';
+  src: url('../../fonts/Hanson-Bold.otf') format('otf'),
+       url('../../fonts/Hanson-Bold.ttf') format('truetype');
+       url:('../../fonts/Hanson-Bold.txt') format('txt');
+  font-weight: bold;
+  font-style: normal;
+}
 
-  
-  @keyframes high-spin-float {
-    0%, 100% {
-      transform: translateY(0) rotate(0deg);
-    }
-    25% {
-      transform: translateY(-12.8rem) rotate(360deg);
-    }
-  }
-  
-  .high-spin-float-animation {
-    animation: high-spin-float 20s ease-in-out infinite;
-  }
-
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-family:  sans-serif;
 }
 
 .custom-heading {
-  font-weight: 900;
+  font-family: 'Hanson Bold', sans-serif;
+  font-weight: bold;
   text-transform: lowercase;
+  line-height: 0.9; /* Adjust this value as needed */
+  margin: 0;
+}
+
+.custom-heading br {
+  margin-top: -0.6em; 
 }
 
 .custom-heading::first-letter {
@@ -36,3 +36,19 @@ body {
 .custom-heading span {
   transition: opacity 1.5s ease;
 }
+
+
+  @keyframes high-spin-float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-12.8rem) rotate(360deg);
+    }
+  }
+  
+  .high-spin-float-animation {
+    animation: high-spin-float 20s ease-in-out infinite;
+  }
+
+

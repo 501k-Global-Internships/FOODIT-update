@@ -16,7 +16,7 @@ const OurVendors = () => {
   ];
 
   return (
-    <div className="our-vendors-container relative w-full overflow-hidden">
+    <div className="custom-heading relative w-full overflow-hidden">
       {/* Wave SVG */}
       <div className="relative">
         <svg
@@ -32,15 +32,15 @@ const OurVendors = () => {
           />
         </svg>
         {/* Content Container */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white p-4">
-          <h2 className="text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold lg:font-extrabold text-center mb-6 sm:mb-8 md:mb-10">
+        <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white lg:p-4 p-2">
+          <h2 className="custom-heading uppercase text-xl sm:text-xl md:text-6xl lg:text-7xl xl:text-8xl font-bold lg:font-extrabold text-center lg:mb-10">
             Our Vendors
           </h2>
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 md:gap-8 max-w-full">
             {vendors.map((vendor, index) => (
               <div
                 key={index}
-                className="w-14 sm:w-16 md:w-20 lg:w-32 flex flex-col items-center"
+                className="w-14 sm:w-14 md:w-20 lg:w-32 flex flex-col items-center lg:mt-14"
               >
                 <img
                   src={vendor.logo}
