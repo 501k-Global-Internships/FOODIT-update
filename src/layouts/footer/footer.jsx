@@ -6,9 +6,10 @@ import TwitterIcon from '../../assets/twitter.svg';
 import FacebookIcon from '../../assets/facebook.svg';
 import LinkedInIcon from '../../assets/linkedin.svg';
 
-const Footer = () => {
+const Footer = ({ isAboutPage = false }) => {
+  const bgColorClass = isAboutPage ? 'bg-[#633B00]' : 'bg-[#232322]';
   return (
-    <footer className="bg-[#232322] text-[#FFFCFC] py-[4rem] px-4 md:px-8">
+    <footer className={`${bgColorClass} text-[#FFFCFC] py-[4rem] px-4 md:px-8`}>
       <div className="max-w-3xl mx-auto flex flex-col md:flex-row justify-between items-start">
         <div className="mb-6 md:mb-0">
           <img src={Logo} alt="foodit" className='h-6' />

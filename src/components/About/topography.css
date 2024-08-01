@@ -1,0 +1,31 @@
+/* Hanson Bold Font */
+@font-face {
+    font-family: 'Hanson Bold';
+    src: url('../../fonts/Hanson-Bold.otf') format('opentype'),
+         url('../../fonts/Hanson-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  /* Montserrat Font */
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  
+  .heading-text {
+    font-family: 'Hanson Bold', sans-serif;
+    font-weight: bold;
+  }
+  
+  .body-text {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  /* You can add more specific classes if needed, e.g.: */
+  .heading-large {
+    @apply text-4xl md:text-5xl lg:text-7xl;
+  }
+  
+  .heading-medium {
+    @apply text-3xl md:text-4xl lg:text-6xl;
+  }
+  
+ 

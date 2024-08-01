@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import Logo from "../../assets/whiteLogo.svg";
 import Cart from "../../assets/shopping-cart.svg";
 import { useCart } from "../../Context/CartContext";
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [scrollY, setScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +47,8 @@ const Navbar = () => {
   const navBackground = scrollY > 0 ? "rgba(26, 26, 26, 0.26)" : "transparent";
   const navBlur = scrollY > 0 ? "8px" : "0px";
 
+  const isAboutPage = location.pathname === "/about";
+
   return (
     <div
       className="fixed top-0 px-4 md:px-[3rem] left-0 right-0 z-50 transition-all duration-300"
@@ -63,9 +66,9 @@ const Navbar = () => {
         {/* Desktop NavItems */}
         <div className="hidden md:flex justify-center">
           <div className="bg-[#1A1A1A42] rounded-full flex gap-2 lg:gap-[5rem] justify-center px-4 py-2">
-            <NavItem text="Home" active />
-            <NavItem text="About Us" />
-            <NavItem text="Become A Vendor" />
+            <NavItem text="Home" to="/" />
+            <NavItem text="About Us" to="/about" />
+            {!isAboutPage && <NavItem text="Become A Vendor" to="/vendor" />}
           </div>
         </div>
 
@@ -148,9 +151,9 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-[#1A1A1A] p-4">
-          <NavItem text="Home" active />
-          <NavItem text="About Us" />
-          <NavItem text="Become A Vendor" />
+          <NavItem text="Home" to="/" />
+          <NavItem text="About Us" to="/about" />
+          {!isAboutPage && <NavItem text="Become A Vendor" to="/vendor" />}
           <button
             onClick={handleGetStartedClick}
             className="block mt-4 w-full px-3 py-2 rounded-full text-center text-sm bg-[#F08F00] text-white"
@@ -172,12 +175,14 @@ const Navbar = () => {
   );
 };
 
-const NavItem = ({ text, active }) => (
+const NavItem = ({ text, to }) => (
   <NavLink
-    to="/"
-    className={`block py-2 px-4 rounded-full text-sm ${
-      active ? "bg-[#141414]" : ""
-    } text-white hover:bg-[#141414] transition-colors`}
+    to={to}
+    className={({ isActive }) =>
+      `block py-2 px-4 rounded-full text-sm ${
+        isActive ? "bg-[#141414]" : ""
+      } text-white hover:bg-[#141414] transition-colors`
+    }
   >
     {text}
   </NavLink>

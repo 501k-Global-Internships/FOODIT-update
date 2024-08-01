@@ -18,6 +18,8 @@ import FORGETPASSWORD from './pages/forgetpassword'
 import CONFIRMPASSWORD from './pages/confirmpassword'
 import NEWPASSWORD from './pages/newpassword'
 import PASSWORDCONFIRMATION from './pages/passwordconfirmation'
+import About from './components/About/About';
+
 
 
 export default function Router() {
@@ -85,6 +87,11 @@ export default function Router() {
           {
             path: "foodBuddyDirectory",
             element: <FoodBuddyDirectory />,
+            index: true,
+          },
+          {
+            path: "about",
+            element: <About />,
             index: true,
           },
           {

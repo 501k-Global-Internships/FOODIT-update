@@ -1,8 +1,7 @@
 @font-face {
   font-family: 'Hanson Bold';
-  src: url('../../fonts/Hanson-Bold.otf') format('otf'),
+  src: url('../../fonts/Hanson-Bold.otf') format('opentype'),
        url('../../fonts/Hanson-Bold.ttf') format('truetype');
-       url:('../../fonts/Hanson-Bold.txt') format('txt');
   font-weight: bold;
   font-style: normal;
 }
