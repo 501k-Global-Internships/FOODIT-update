@@ -7,6 +7,7 @@ import waveImg from "../../assets/wave.png";
 import "./homePage.css";
 import { useEffect, useState } from "react";
 
+
 const HomePage = () => {
   const [eatWellOpacity, setEatWellOpacity] = useState(0);
   const [clickWellOpacity, setClickWellOpacity] = useState(0);
@@ -58,14 +59,14 @@ const HomePage = () => {
 
       {/* Content wrapper */}
       <div className="relative z-10 min-h-screen flex flex-col">
-        <div className="px-16 py-8">
+        <div className="px-16 py-4"> 
           <Navbar />
         </div>
         {/* Main content */}
-        <main className="flex-grow px-16 py-3 sm:mt-[3rem]">
-          <div className="flex flex-col md:flex-row items-center justify-between mt-2">
+        <main className="flex-grow px-16"> 
+          <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:mb-0">
-              <h1 className="custom-heading text-7xl lg:text-9xl mb-[2.5rem]">
+              <h1 className="custom-heading text-6xl lg:text-8xl mb-6">
                 <span
                   className="text-white transition-opacity duration-1500"
                   style={{ opacity: eatWellOpacity }}
@@ -92,7 +93,7 @@ const HomePage = () => {
                   well.
                 </span>
               </h1>
-              <p className="text-[1.2rem] mb-6 mt-10 text-white">
+              <p className="text-[1.1rem] mb-4 mt-6 text-white">
                 Food is a Universal Language. And Nigeria is home <br />
                 to over 1000 of these Languages.
               </p>
@@ -102,7 +103,7 @@ const HomePage = () => {
           </div>
         </main>
         {/* Wave image with content */}
-        <div className="relative h-[35rem]">
+        <div className="relative h-[35rem] mt-5">
           <img src={waveImg} alt="Wave" className="w-full h-full" />
           <div className="absolute inset-0 flex flex-col justify-end px-20 py-[9rem]">
             <div className="lg:ml-[19rem]">
@@ -120,7 +121,7 @@ const HomePage = () => {
           <img
             src={vegPlate}
             alt="Plate"
-            className="lg:w-48 lg:h-48 w-40 h-40 absolute right-[10%] top-[.1rem] transform -translate-y-1/2 z-20 high-spin-float-animation"
+            className="lg:w-48 lg:h-48 w-40 h-40 absolute right-[10%] top-0 transform -translate-y-1/2 z-20 high-spin-float-animation"
           />
         </div>
       </div>

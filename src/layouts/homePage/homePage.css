@@ -16,7 +16,7 @@ body {
   font-family: 'Hanson Bold', sans-serif;
   font-weight: bold;
   text-transform: lowercase;
-  line-height: 0.9; /* Adjust this value as needed */
+  line-height: 0.9; 
   margin: 0;
 }
 
@@ -42,7 +42,7 @@ body {
       transform: translateY(0) rotate(0deg);
     }
     25% {
-      transform: translateY(-12.8rem) rotate(360deg);
+      transform: translateY(-9.4rem) rotate(360deg);
     }
   }
   

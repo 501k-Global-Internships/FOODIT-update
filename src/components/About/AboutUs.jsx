@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react";
 import aboutImg from "../../assets/aboutImg.svg";
 import './topography.css'
 
 const AboutUs = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setImageLoaded(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="bg-black text-white w-full min-h-screen py-28 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
@@ -21,11 +32,19 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="w-full md:w-[50rem] flex justify-center items-center mt-6 md:mt-0">
-            <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-full">
+            <div className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 overflow-hidden rounded-full relative">
+              <div 
+                className={`absolute inset-0 bg-white rounded-full transition-opacity duration-500 ${
+                  imageLoaded ? 'opacity-0' : 'opacity-100'
+                }`}
+              ></div>
               <img
                 src={aboutImg}
                 alt="Food collage"
-                className="w-full h-full object-cover"
+                className={`w-full h-full object-cover transition-opacity duration-500 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                onLoad={() => setImageLoaded(true)}
               />
             </div>
           </div>

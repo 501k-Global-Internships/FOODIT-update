@@ -34,7 +34,7 @@ const FoodImages = ({ menuStyle = false }) => {
 
   // Original FoodImages layout for other components
   return (
-    <div className="relative w-[14rem] h-[16rem] sm:w-[20rem] sm:h-[22rem]">
+    <div className="relative w-[14rem] h-[16rem] sm:w-[20rem] sm:h-[22rem] lg:mt-24">
       <div className="absolute lg:left-[7.9rem] left-[4rem] top-[8rem] transform -translate-y-2/4">
         <img
           src={Season}
