@@ -48,6 +48,7 @@ const Navbar = () => {
   const navBlur = scrollY > 0 ? "8px" : "0px";
 
   const isAboutPage = location.pathname === "/about";
+  const isVendorPage = location.pathname === "/vendorLanding";
 
   return (
     <div
@@ -66,24 +67,26 @@ const Navbar = () => {
         {/* Desktop NavItems */}
         <div className="hidden md:flex justify-center">
           <div className="bg-[#1A1A1A42] rounded-full flex gap-2 lg:gap-[5rem] justify-center px-4 py-2">
-            <NavItem text="Home" to="/" />
+            <NavItem text="Home" to="/" isActive={isVendorPage}  />
             <NavItem text="About Us" to="/about" />
-            {!isAboutPage && <NavItem text="Become A Vendor" to="/vendor" />}
+            {!isAboutPage && !isVendorPage && <NavItem text="Become A Vendor" to="/vendor" />}
           </div>
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-4">
-          <button
-            onClick={handleCartClick}
-            className="bg-[#F08F00] p-1 sm:p-2 rounded-full flex flex-row justify-items-center text-white relative"
-          >
-            <img src={Cart} alt="Cart" className="h-5 w-5 sm:h-6 sm:w-6" />
-            {hasItems && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {cartCount}
-              </span>
-            )}
-          </button>
+          {!isVendorPage && (
+            <button
+              onClick={handleCartClick}
+              className="bg-[#F08F00] p-1 sm:p-2 rounded-full flex flex-row justify-items-center text-white relative"
+            >
+              <img src={Cart} alt="Cart" className="h-5 w-5 sm:h-6 sm:w-6" />
+              {hasItems && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          )}
           <div className="relative hidden md:block">
             <button
               onClick={handleGetStartedClick}
@@ -153,7 +156,7 @@ const Navbar = () => {
         <div className="md:hidden bg-[#1A1A1A] p-4">
           <NavItem text="Home" to="/" />
           <NavItem text="About Us" to="/about" />
-          {!isAboutPage && <NavItem text="Become A Vendor" to="/vendor" />}
+          {!isAboutPage && !isVendorPage && <NavItem text="Become A Vendor" to="/vendor" />}
           <button
             onClick={handleGetStartedClick}
             className="block mt-4 w-full px-3 py-2 rounded-full text-center text-sm bg-[#F08F00] text-white"

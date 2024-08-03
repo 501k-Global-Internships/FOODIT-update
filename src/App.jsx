@@ -4,6 +4,7 @@ import { CartProvider } from './Context/CartContext'; // Import CartProvider
 import Navbar from "./layouts/navbar/navbar";
 import HomePage from "./layouts/homePage/homePage";
 import About from "./components/About/About";
+import VendorLanding from "./pages/vendorLanding";
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Route>
           <Route path="/vendor" element={<vendor />} />
+          <Route path="/vendorLanding" element={<VendorLanding />} />
         </Routes>
       </BrowserRouter>
     </CartProvider>

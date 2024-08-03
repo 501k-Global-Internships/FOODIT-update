@@ -19,6 +19,9 @@ import CONFIRMPASSWORD from './pages/confirmpassword'
 import NEWPASSWORD from './pages/newpassword'
 import PASSWORDCONFIRMATION from './pages/passwordconfirmation'
 import About from './components/About/About';
+import VendorLanding from './pages/vendorLanding';
+import VendorDashboard from './components/VendorDashboard/VendorDashboard';
+
 
 
 
@@ -90,6 +93,11 @@ export default function Router() {
             index: true,
           },
           {
+            path: "vendorLanding",
+            element: <VendorLanding />,
+            index: true,
+          },
+          {
             path: "about",
             element: <About />,
             index: true,
@@ -111,6 +119,12 @@ export default function Router() {
             element: <CONFIRMPASSWORD />,
             index: true,
           },
+          {
+            path: "vendorDashboard",
+            element: <VendorDashboard />,
+            index: true,
+          },
+
 
           {
             path: "newpassword",
