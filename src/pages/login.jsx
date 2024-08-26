@@ -1,17 +1,49 @@
-// import React, { useState, useRef } from "react";
+import React, { useState, useRef } from "react";
 import NAVBAR from "../layouts/navbar/navbar2";
 import IMAGE3 from "../assets/smiley-man-eating-restaurant 3.png";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import { login } from '../auth';
 
 export default function Login() {
   const navigate = useNavigate();
-  // const handleSignupButton = () => {
-  //   navigate("/signup");
-  // };
-  const handleFoodButton = () => {
-    navigate("/foodnearby");
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
+
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setCredentials({
+      ...credentials,
+      [name]: value,
+    });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const data = await login(credentials);
+      if (data.success) {
+       localStorage.setItem("token", data.data.api_token);
+        localStorage.setItem("refreshToken", data.data.refresh_token);
+        // document.cookie = `credentials=${credentials.email}`;
+        navigate("/foodnearby");
+      } else {
+        setError(data.responseMessage || "Login failed. Please try again.");
+      }
+    } catch (err) {
+      if (err.message === "User does not exist!, Kindly signup") {
+        setError("User does not exist! Please sign up.");
+      } else {
+        setError(err.message);
+      }
+
+      console.log("Error:", err); 
+    }
   };
   return (
     <div className="">
@@ -35,6 +67,9 @@ export default function Login() {
                 </p>
                 <input
                   type="email"
+                  value={credentials.email}
+                  onChange={handleChange}
+                  name="email"
                   placeholder="testing@gmail.com"
                   className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                 />
@@ -45,6 +80,9 @@ export default function Login() {
                 </p>
                 <input
                   type="password"
+                  value={credentials.password}
+                  onChange={handleChange}
+                  name="password"
                   placeholder="Enter Password"
                   className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                 />
@@ -67,11 +105,12 @@ export default function Login() {
                 </p>
               </div>
               <button
-                onClick={handleFoodButton}
+                onClick={handleLogin}
                 className="w-full h-[60px] rounded-[600px] text-white font-bold font-mont text-[18px] bg-[#F6821F] items-center"
               >
                 Login
               </button>
+              {error && <div id="error" style={{ color: "red", fontSize: "12px" }}>{error}</div>}
             </form>
           </div>
           <div className="bg-white h-full w-full md:w-[50%] flex justify-center items-center">
