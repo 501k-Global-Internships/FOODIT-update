@@ -1,16 +1,66 @@
-import React from "react";
+// import React from "react";
 import NAVBAR from "../layouts/navbar/navbar2";
 import IMAGE1 from "../assets/tdepdq5erh2m4rf2tbcc 2.svg";
 import IMAGE2 from "../assets/iubtwr6kx8efworguimd 1.svg";
 import IMAGE3 from "../assets/pngwing.com - 2024-02-29T193711 1.svg";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signup } from '../auth';
+import { toast } from 'react-toastify';
 
 export default function Signup() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState({ firstName: "", lastName: "",  email: "", password: "" });
+  const [error, setError] = useState("");
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserDetails({
+      ...userDetails,
+      [name]: value,
+    });
+  };
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setError("");
+
+    try {
+      const data = await signup(userDetails);
+      if (data.success) {
+        toast.success("Signup successful! Welcome!", {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000,
+        });
+        navigate("/login");
+      } else {
+        if (data.message === "User already exists") {
+          setError("User already exists. Please log in or use a different email.");
+        } else if (data.message === "Password is not strong enough") {
+          setError("Password is not strong enough. Please use at least 8 characters with a mix of letters and numbers.");
+        } else {
+          setError(data.message || "Signup failed. Please try again.");
+        }
+      }
+    } catch (err) {
+      if (err.message.includes("User already exists")) {
+        setError("User already exists. Please log in or use a different email.");
+      } else if (err.message.includes("Password is not strong enough")) {
+        setError("Password is not strong enough. Please use at least 8 characters with a mix of letters and numbers.");
+      } else {
+        setError(err.message || "Signup failed. Please try again.");
+      }
+      console.error("Signup failed with error:", err);
+    }
+
+    console.log(error)
+  };
+
   
-    const handleSignupButton = () => {
-      navigate("/numberpage");
-    };
+    // const handleSignupButton = () => {
+    //   navigate("/numberpage");
+    // };
   
     return (
       <div className="w-full">
@@ -26,6 +76,7 @@ export default function Signup() {
                     </p>
                     <input
                       type="text"
+                      name="firstName" value={userDetails.firstName} onChange={handleChange}
                       placeholder="Joel"
                       className="w-full md:w-[213px] h-[60px] rounded-[600px] border-[1px] px-3 outline-none"
                     />
@@ -37,6 +88,7 @@ export default function Signup() {
                     </p>
                     <input
                       type="text"
+                      name="lastName" value={userDetails.lastName} onChange={handleChange}
                       placeholder="Joel"
                       className="border-[1px] w-full md:w-[213px] h-[60px] rounded-[600px] px-3 outline-none"
                     />
@@ -49,6 +101,7 @@ export default function Signup() {
                   </p>
                   <input
                     type="email"
+                    name="email" value={userDetails.email} onChange={handleChange}
                     placeholder="testing@gmail.com"
                     className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                   />
@@ -56,11 +109,12 @@ export default function Signup() {
   
                 <label htmlFor="" className="block mb-5">
                   <p className="text-black font-mont font-bold text-[18px]">
-                    Add Location
+                    Password
                   </p>
                   <input
-                    type="email"
-                    placeholder="testing@gmail.com"
+                    type="password"
+                    name="password" value={userDetails.password} onChange={handleChange}
+                    placeholder="Password"
                     className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                   />
                 </label>
@@ -76,11 +130,12 @@ export default function Signup() {
                   </p>
                 </div>
                 <button
-                  onClick={handleSignupButton}
+                  onClick={handleSignup}
                   className="w-full h-[60px] rounded-[600px] text-white font-bold font-mont text-[18px] bg-[#F6821F] items-center"
                 >
                   Agree and Continue
                 </button>
+                {error && <div style={{ color: "red", fontSize: "12px" }}>{error}</div>}
               </form>
             </div>
   

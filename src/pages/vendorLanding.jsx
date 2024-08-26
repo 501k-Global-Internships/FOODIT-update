@@ -11,7 +11,7 @@ const VendorLanding = () => {
           style={{ backgroundImage: `url(${chefCooking})` }}
         >
           <Navbar />
-          <div className="container mx-auto pt-24 md:pt-[9rem] lg:px-[3.6rem]">
+          <div className="container mx-auto px-4 pt-24 md:pt-32">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               <span className="text-[#F7F6F4]">Fresh Food,</span><br />
               <span className="text-[#F08F00]">Fast Delivery.</span>
