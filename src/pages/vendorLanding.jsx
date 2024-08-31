@@ -15,7 +15,7 @@ const VendorLanding = () => {
     return (
       <div className="min-h-screen bg-black text-white font-sans">
         <div 
-          className="bg-cover bg-center h-screen"
+          className="bg-cover bg-center h-screen "
           style={{ backgroundImage: `url(${chefCooking})` }}
         >
           <Navbar />
