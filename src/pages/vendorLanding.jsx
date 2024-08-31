@@ -1,15 +1,13 @@
 import Navbar from "../layouts/navbar/navbar";
 import chefCooking from '../assets/chef-cooking.svg'
-import iconDelivery from '../assets/247.svg'
-
-
-
+import iconDelivery from '../assets/settings.svg'
+import { Link } from "react-router-dom";
 
 const VendorLanding = () => {
     return (
       <div className="min-h-screen bg-black text-white font-sans">
         <div 
-          className="bg-cover bg-center min-h-screen"
+          className="bg-cover bg-center h-screen "
           style={{ backgroundImage: `url(${chefCooking})` }}
         >
           <Navbar />
@@ -23,15 +21,15 @@ const VendorLanding = () => {
               Your Food In Seconds
             </p>
             <div className="space-x-4">
-              <button className="bg-transparent border-2 border-[#F08F00] text-[#F08F00] px-6 py-2 rounded-full hover:bg-[#F08F00] hover:text-white transition duration-300">
+              <Link to='/vendorLogin' className="bg-transparent border-2 border-[#F08F00] text-[#F08F00] px-6 py-2 rounded-full hover:bg-[#F08F00] hover:text-white transition duration-300">
                 LOGIN
-              </button>
+              </Link>
               <button className="bg-[#F08F00] text-white px-6 py-2 rounded-full hover:bg-[#F08F00]/80 transition duration-300">
                 SIGNUP
               </button>
             </div>
           </div>
-          <div className="container mx-auto px-4 absolute bottom-8 left-0 right-0">
+          <div className="container mx-auto px-4 absolute bottom-8 left-0 right-0 lg:px-[5rem]">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-sm">
               <Feature icon={iconDelivery} text="24/7 Delivery Service Provided." />
               <Feature icon={iconDelivery} text="24/7 Customer Support And Daily Reconciliations." />
