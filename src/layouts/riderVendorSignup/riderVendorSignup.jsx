@@ -2,8 +2,16 @@ import React from 'react';
 import Ride from '../../assets/ride.svg';
 import Vendor from '../../assets/tastycart.svg';
 import './riderVendorSignup.css';
+import { useNavigate } from 'react-router-dom';
 
 const RiderVendorSignup = () => {
+
+  const navigate = useNavigate();
+
+  const handleSignUpButton =() => {
+    navigate('/vendorsignup');
+  }
+
   return (
     <div className="w-full overflow-hidden relative content-wrapper">
       {/* Top scrolling text */}
@@ -40,8 +48,8 @@ const RiderVendorSignup = () => {
               <p className="text-3xl font-bold leading-none mb-3">A Vendor</p>
               <p className="text-sm leading-tight">Join Our Community Of Vendors</p>
               <p className="text-sm leading-tight">And Earn Extra Income</p>
-              <button className="bg-[#F08F00] text-white px-6 py-2 rounded-full text-sm font-bold mt-2 ring-2 ring-white">SIGNUP</button>
-            </div>
+              <button onClick={handleSignUpButton} className="bg-[#F08F00] text-white px-6 py-2 rounded-full text-sm font-bold mt-2 ring-2 ring-white">SIGNUP</button>
+            </div> 
           </div>
         </div>
       </div>
