@@ -1,0 +1,11 @@
+/* fonts.css */
+@font-face {
+  font-family: 'Hanson Bold';
+  src: url('../') format('opentype'),
+       url('../../fonts/Hanson-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* If you need to import Montserrat as well */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');

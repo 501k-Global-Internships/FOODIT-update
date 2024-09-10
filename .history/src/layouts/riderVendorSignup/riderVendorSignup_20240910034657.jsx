@@ -41,7 +41,7 @@ const RiderVendorSignup = () => {
               <p className="text-3xl font-bold leading-none mb-3">A Vendor</p>
               <p className="text-sm leading-tight">Join Our Community Of Vendors</p>
               <p className="text-sm leading-tight mb-3">And Earn Extra Income</p>
-              <Link to='/vendorLanding' className="bg-[#F08F00] text-white px-6 py-2 rounded-full text-sm font-bold ring-2 ring-white">SIGNUP</Link>
+              <Link to='/vendorLanding' className="bg-[#F08F00] text-white px-6 py-2 rounded-full text-sm font-bold ring-2 mt-3 ring-white">SIGNUP</Link>
             </div>
           </div>
         </div>

@@ -6,7 +6,6 @@ import { ReactComponent as OrdersIcon } from "../../assets/orders.svg";
 import { ReactComponent as DishesIcon } from "../../assets/ep-food.svg";
 import Logo from '../../assets/logoblack.svg';
 
-
 const Dashboard = ({ isOpen, closeSidebar }) => {
   const location = useLocation();
 
@@ -37,7 +36,7 @@ const Dashboard = ({ isOpen, closeSidebar }) => {
       } md:translate-x-0`}
     >
       <div className="flex justify-between items-center mb-8">
-        <img src={Logo} alt="foodit logo" />
+        <img src={} alt="foodit logo" />
         <button onClick={closeSidebar} className="md:hidden">
           <svg
             className="w-6 h-6"

@@ -3,7 +3,7 @@ import Navbar from "../layouts/navbar/navbar";
 import chefCooking from "../assets/chef-cooking.svg";
 import iconDelivery from "../assets/settings.svg";
 import { Link } from "react-router-dom";
-import "./vendorLanding.css";
+import "./customFonts.css"; // Import the custom fonts and styles
 
 const VendorLanding = () => {
   return (
@@ -13,7 +13,7 @@ const VendorLanding = () => {
         style={{ backgroundImage: `url(${chefCooking})` }}
       >
         <Navbar />
-        <div className="container mx-auto px-8 pt-24 md:pt-40">
+        <div className="container mx-auto px-4 pt-24 md:pt-40">
           <h1 className="text-4xl md:text-6xl font-bold mb-4 custom-heading">
             <span className="text-[#F7F6F4] capitalize-first">Fresh Food,</span>
             <br />

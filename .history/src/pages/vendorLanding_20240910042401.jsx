@@ -1,10 +1,8 @@
-import React from "react";
 import Navbar from "../layouts/navbar/navbar";
-import chefCooking from "../assets/chef-cooking.svg";
-import iconDelivery from "../assets/settings.svg";
+import chefCooking from '../assets/chef-cooking.svg'
+import iconDelivery from '../assets/settings.svg'
 import { Link } from "react-router-dom";
 import "./vendorLanding.css";
-
 const VendorLanding = () => {
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -13,18 +11,13 @@ const VendorLanding = () => {
         style={{ backgroundImage: `url(${chefCooking})` }}
       >
         <Navbar />
-        <div className="container mx-auto px-8 pt-24 md:pt-40">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 custom-heading">
-            <span className="text-[#F7F6F4] capitalize-first">Fresh Food,</span>
+        <div className="container mx-auto px-4 pt-24 md:pt-40">
+          <h1 className="mb-4 font-['Hanson Bold'] font-bold text-[92px] leading-[98.99px]">
+            <span className="text-[#F7F6F4]">Fresh Food,</span>
             <br />
-            <span className="text-[#F08F00] capitalize-first">
-              Fast Delivery.
-            </span>
+            <span className="text-[#F08F00]">Fast Delivery.</span>
           </h1>
-          <p
-            className="text-xl md:text-2xl mb-8 text-[#F7F6F4]"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
-          >
+          <p className="mb-8 font-['Montserrat'] font-medium text-[23px] leading-[27.74px] text-[#F7F6F4]">
             Become A Vendor, And Get A Free{" "}
             <span className="text-[#F08F00]">Website</span> To Showcase
             <br />

@@ -3,7 +3,7 @@ import Navbar from "../layouts/navbar/navbar";
 import chefCooking from "../assets/chef-cooking.svg";
 import iconDelivery from "../assets/settings.svg";
 import { Link } from "react-router-dom";
-import "./vendorLanding.css";
+import "./vendorLanding.css"; // Import the custom fonts and styles
 
 const VendorLanding = () => {
   return (
