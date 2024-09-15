@@ -17,7 +17,8 @@ const VendorLogin = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoading(true);   
+
     setError(null);
 
     fetch('https://foodit-cpig.onrender.com/auth/vendor/login', {
@@ -31,12 +32,6 @@ const VendorLogin = () => {
       }),
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('No Account with this credentials!, Kindly signup');
-        }
-        return response.json();
-      })
-      .then((response) => {
         if (!response.ok)   
  {
           throw new Error('No Account with these credentials! Kindly signup');
@@ -45,7 +40,7 @@ const VendorLogin = () => {
       })
       .then((data) => {
         console.log('Login successful:', data);
-        navigate('/dashboard'); 
+        navigate('/foodnearby'); 
       })
       .catch((error) => {
         setError(error.message);
@@ -54,7 +49,6 @@ const VendorLogin = () => {
         setLoading(false);
       });
   };
-
 
 
 

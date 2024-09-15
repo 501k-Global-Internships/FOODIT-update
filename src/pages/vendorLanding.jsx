@@ -49,7 +49,6 @@ const VendorLanding = () => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
