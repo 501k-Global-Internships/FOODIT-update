@@ -14,7 +14,6 @@ const VendorLogin = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
