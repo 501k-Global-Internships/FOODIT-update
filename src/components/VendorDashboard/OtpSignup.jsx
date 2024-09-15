@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import chefImage from "../../assets/CookingVendor.svg";
 import Navbar from "../../layouts/navbar/navbar";
+import { useNavigate } from 'react-router-dom';
 
 const OtpSignup = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
@@ -15,13 +19,51 @@ const OtpSignup = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    const otpCode = otp.join(''); // Combine the array of digits into a single OTP string
+    const phoneNumber = localStorage.getItem('phoneNumber'); // Retrieve the phone number from local storage
+
+    // Construct the URL with query parameters for the GET request
+    const url = `https://foodit-cpig.onrender.com/auth/vendor/account_activation?phoneNumber=${phoneNumber}&otp=${otpCode}`;
+
+    // Call the OTP verification API using GET
+    fetch(url, {
+      method: 'GET',
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData?.error?.responseMessage || 'OTP verification failed');
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        if (data.success) {
+          // OTP was successfully verified, redirect to the next page (e.g., dashboard or home)
+          navigate('/dashboard');
+        } else {
+          throw new Error(data?.error?.responseMessage || 'OTP verification failed');
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error.message); // Display error message
+      });
+  };
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
       <div className="flex-grow flex items-center justify-center px-4 py-12 sm:mt-9">
         <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="w-full md:w-1/2 max-w-md">
-            <button className="flex items-center text-gray-600 mb-4">
+            <button className="flex items-center text-gray-600 mb-4" onClick={() => navigate(-1)}>
               <svg
                 className="w-4 h-4 mr-2"
                 fill="none"
@@ -40,28 +82,34 @@ const OtpSignup = () => {
             </button>
             <h2 className="text-2xl font-bold mb-4">Confirm OTP</h2>
             <p className="text-gray-600 mb-6">
-              We sent an 6 digit One Time Password (OTP) to your Email
-              UserEmail@gmail.com
+              We sent a 6-digit One Time Password (OTP) to your phone number.
             </p>
-            <div className="flex justify-between mb-6">
-              {otp.map((data, index) => {
-                return (
-                  <input
-                    className="w-12 h-12 border-2 rounded-full bg-transparent outline-none text-center font-semibold text-xl border-gray-400 focus:border-[#F08F00] focus:text-[#F08F00] text-gray-800 transition"
-                    type="text"
-                    name="otp"
-                    maxLength="1"
-                    key={index}
-                    value={data}
-                    onChange={(e) => handleChange(e.target, index)}
-                    onFocus={(e) => e.target.select()}
-                  />
-                );
-              })}
-            </div>
-            <button className="w-full bg-[#F08F00] text-white py-2 rounded-3xl hover:bg-[#D67E00]">
-              Continue
-            </button>
+            <form onSubmit={handleSubmit}>
+              <div className="flex justify-between mb-6">
+                {otp.map((data, index) => {
+                  return (
+                    <input
+                      className="w-12 h-12 border-2 rounded-full bg-transparent outline-none text-center font-semibold text-xl border-gray-400 focus:border-[#F08F00] focus:text-[#F08F00] text-gray-800 transition"
+                      type="text"
+                      name="otp"
+                      maxLength="1"
+                      key={index}
+                      value={data}
+                      onChange={(e) => handleChange(e.target, index)}
+                      onFocus={(e) => e.target.select()}
+                    />
+                  );
+                })}
+              </div>
+              {error && <p style={{ color: 'red' }}>{error}</p>}
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full bg-[#F08F00] text-white py-2 rounded-3xl hover:bg-[#D67E00]"
+              >
+                {loading ? 'Verifying...' : 'Continue'}
+              </button>
+            </form>
           </div>
           <div className="w-full md:w-1/3 max-w-md">
             <img

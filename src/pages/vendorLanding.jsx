@@ -2,8 +2,16 @@ import Navbar from "../layouts/navbar/navbar";
 import chefCooking from '../assets/chef-cooking.svg'
 import iconDelivery from '../assets/settings.svg'
 import { Link } from "react-router-dom";
+import { useNavigate } from'react-router-dom';
 
 const VendorLanding = () => {
+
+  const navigate = useNavigate();
+  const handleSignupButton = () => {
+    navigate('/vendorSignup');
+  }
+
+
     return (
       <div className="min-h-screen bg-black text-white font-sans">
         <div 
@@ -24,7 +32,7 @@ const VendorLanding = () => {
               <Link to='/vendorLogin' className="bg-transparent border-2 border-[#F08F00] text-[#F08F00] px-6 py-2 rounded-full hover:bg-[#F08F00] hover:text-white transition duration-300">
                 LOGIN
               </Link>
-              <button className="bg-[#F08F00] text-white px-6 py-2 rounded-full hover:bg-[#F08F00]/80 transition duration-300">
+              <button onClick={handleSignupButton} className="bg-[#F08F00] text-white px-6 py-2 rounded-full hover:bg-[#F08F00]/80 transition duration-300">
                 SIGNUP
               </button>
             </div>

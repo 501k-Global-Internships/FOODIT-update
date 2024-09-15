@@ -7,44 +7,46 @@ import { NavLink } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState('');   
+
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
- const handleLogin = (e) => {
-  e.preventDefault();
-  setLoading(true);
-  setError(null);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLoading(true);   
 
-  fetch('https://foodit-cpig.onrender.com/auth/local/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error('No Account with these credentials! Kindly signup');
-      }
-      return response.json(); // Parse the response to JSON
+    setError(null);
+
+    fetch('https://foodit-cpig.onrender.com/auth/local/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
-    .then((data) => {
-      console.log('Login successful:', data);
-      // Navigate to the desired page after a successful login
-      navigate('/foodnearby');
-    })
-    .catch((error) => {
-      setError(error.message);
-    })
-    .finally(() => {
-      setLoading(false);
-    });
-};
+      .then((response) => {
+        if (!response.ok)   
+ {
+          throw new Error('No Account with these credentials! Kindly signup');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Login successful:', data);
+        navigate('/foodnearby'); 
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="">

@@ -51,7 +51,7 @@ const SignUpForm = () => {
         setLoading(false);
         if (data.success) {
           // Navigate to the dashboard
-          navigate('/dashboard');
+          navigate('/otpSignup');
         } else {
           throw new Error(data?.error?.responseMessage || 'Signup failed');
         }

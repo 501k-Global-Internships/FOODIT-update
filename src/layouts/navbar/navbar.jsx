@@ -69,7 +69,7 @@ const Navbar = () => {
           <div className="bg-[#1A1A1A42] rounded-full flex gap-2 lg:gap-[5rem] justify-center px-4 py-2">
             <NavItem text="Home" to="/" isActive={isVendorPage}  />
             <NavItem text="About Us" to="/about" />
-            {!isAboutPage && !isVendorPage && <NavItem text="Become A Vendor" to="/vendor" />}
+            {!isAboutPage && !isVendorPage && <NavItem text="Become A Vendor" to="/vendorLanding" />}
           </div>
         </div>
 

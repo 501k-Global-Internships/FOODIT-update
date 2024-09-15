@@ -36,20 +36,22 @@ const VendorLogin = () => {
         }
         return response.json();
       })
-      .then((data) => {
-        setLoading(false);
-        const accessToken = data.token || data.accessToken;
-
-        if (accessToken) {
-          localStorage.setItem('accessToken', accessToken);
-          navigate('/dashboard');
-        } else {
-          throw new Error('Invalid login response');
+      .then((response) => {
+        if (!response.ok)   
+ {
+          throw new Error('No Account with these credentials! Kindly signup');
         }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Login successful:', data);
+        navigate('/dashboard'); 
       })
       .catch((error) => {
-        setLoading(false);
         setError(error.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
