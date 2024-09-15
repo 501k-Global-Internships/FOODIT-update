@@ -5,6 +5,9 @@ import { ReactComponent as DashboardIcon } from "../../assets/dashboard.svg";
 import { ReactComponent as OrdersIcon } from "../../assets/orders.svg";
 import { ReactComponent as DishesIcon } from "../../assets/ep-food.svg";
 
+import Logo from '../../assets/logoblack.svg';
+
+
 const Dashboard = ({ isOpen, closeSidebar }) => {
   const location = useLocation();
 
@@ -28,6 +31,7 @@ const Dashboard = ({ isOpen, closeSidebar }) => {
     );
   };
 
+
   return (
     <div
       className={`bg-white w-64 h-full flex flex-col p-4 fixed left-0 top-0 bottom-0 z-40 transform transition-transform duration-300 ease-in-out ${
@@ -35,7 +39,9 @@ const Dashboard = ({ isOpen, closeSidebar }) => {
       } md:translate-x-0`}
     >
       <div className="flex justify-between items-center mb-8">
-        <div className="text-2xl font-bold text-[#F8A307]">FoodIt</div>
+
+        <img src={Logo} alt="foodit logo" />
+
         <button onClick={closeSidebar} className="md:hidden">
           <svg
             className="w-6 h-6"

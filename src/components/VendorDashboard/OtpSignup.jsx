@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import chefImage from "../../assets/CookingVendor.svg";
 import Navbar from "../../layouts/navbar/navbar";
+
 import { useNavigate } from 'react-router-dom';
 
 const OtpSignup = () => {
@@ -8,6 +9,7 @@ const OtpSignup = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
 
   const handleChange = (element, index) => {
     if (isNaN(element.value)) return false;
@@ -18,6 +20,7 @@ const OtpSignup = () => {
       element.nextSibling.focus();
     }
   };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,13 +57,16 @@ const OtpSignup = () => {
       });
   };
 
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
       <div className="flex-grow flex items-center justify-center px-4 py-12 sm:mt-9">
         <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="w-full md:w-1/2 max-w-md">
+
             <button className="flex items-center text-gray-600 mb-4" onClick={() => navigate(-1)}>
+
               <svg
                 className="w-4 h-4 mr-2"
                 fill="none"
@@ -79,6 +85,7 @@ const OtpSignup = () => {
             </button>
             <h2 className="text-2xl font-bold mb-4">Confirm OTP</h2>
             <p className="text-gray-600 mb-6">
+
               We sent a 6-digit One Time Password (OTP) to your phone number.
             </p>
             <form onSubmit={handleSubmit}>
@@ -107,6 +114,7 @@ const OtpSignup = () => {
                 {loading ? 'Verifying...' : 'Continue'}
               </button>
             </form>
+
           </div>
           <div className="w-full md:w-1/3 max-w-md">
             <img
@@ -121,4 +129,6 @@ const OtpSignup = () => {
   );
 };
 
+
 export default OtpSignup;
+

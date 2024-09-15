@@ -1,4 +1,6 @@
+import React from "react";
 import Navbar from "../layouts/navbar/navbar";
+
 import chefCooking from '../assets/chef-cooking.svg'
 import iconDelivery from '../assets/settings.svg'
 import { Link } from "react-router-dom";
@@ -43,17 +45,19 @@ const VendorLanding = () => {
               <Feature icon={iconDelivery} text="24/7 Customer Support And Daily Reconciliations." />
               <Feature icon={iconDelivery} text="Showcase Your Food On Our Landing Page/Foodbuddy" />
             </div>
+
           </div>
         </div>
       </div>
-    );
-  };
-  
-  const Feature = ({ icon, text }) => (
-    <div className="flex items-center mb-4 md:mb-0">
-      <img src={icon} alt="Icon" className="w-6 h-6 mr-2" />
-      <span className="text-[#F7F6F4]">{text}</span>
     </div>
   );
-  
-  export default VendorLanding;
+};
+
+const Feature = ({ icon, text }) => (
+  <div className="flex items-center mb-4 md:mb-0">
+    <img src={icon} alt="Icon" className="w-6 h-6 mr-2" />
+    <span className="text-[#F7F6F4]">{text}</span>
+  </div>
+);
+
+export default VendorLanding;

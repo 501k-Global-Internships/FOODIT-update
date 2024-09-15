@@ -1,10 +1,13 @@
+
 import React, { useState } from 'react';
+
 import googleIcon from "../../assets/google-icon.svg";
 import facebookIcon from "../../assets/facebook-icon.svg";
 import appleIcon from "../../assets/apple-icon.svg";
 import emailIcon from "../../assets/email-icon.svg";
 import chefImage from "../../assets/CookingVendor.svg";
 import Navbar from "../../layouts/navbar/navbar";
+
 import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
@@ -68,6 +71,7 @@ const SignUpForm = () => {
       <div className="flex-grow flex items-center justify-center px-4 py-20 lg:mt-12 mt-9">
         <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="w-full md:w-1/3 max-w-md">
+
             <form onSubmit={handleSignup} className="space-y-6">
             <div>
                 <label
@@ -85,6 +89,7 @@ const SignUpForm = () => {
                 />
               </div>
              
+
               <div>
                 <label
                   htmlFor="email"
@@ -95,8 +100,10 @@ const SignUpForm = () => {
                 <input
                   type="email"
                   id="email"
+
                   value={email}
             onChange={(e) => setEmail(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -105,6 +112,7 @@ const SignUpForm = () => {
                   htmlFor="confirmEmail"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
+
                   Password
                 </label>
                 <input
@@ -112,6 +120,7 @@ const SignUpForm = () => {
                   id="password"
                   value={password}
             onChange={(e) => setPassword(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -125,8 +134,10 @@ const SignUpForm = () => {
                 <input
                   type="tel"
                   id="phone"
+
                   value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -142,6 +153,7 @@ const SignUpForm = () => {
                 </label>
               </div>
               <button
+
                 type="submit" disabled={loading}
                 className="w-full bg-[#F08F00] text-white py-3 rounded-3xl hover:bg-[#D67E00]"
               >
@@ -149,6 +161,7 @@ const SignUpForm = () => {
               </button>
             </form>
             {error && <p style={{ color: 'red' }}>{error}</p>}
+
             <div className="mt-8 text-center">
               <div className="flex items-center justify-center">
                 <div className="flex-grow h-px bg-gray-300"></div>

@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import Navbar from "../../layouts/navbar/navbar";
 import cookingVendor from "../../assets/CookingVendor.svg";
 import foodBlackLogo from "../../assets/foodblack.svg";
+
 import { useNavigate } from 'react-router-dom';
+
 
 const VendorSignup = () => {
   const [vendorName, setVendorName] = useState("");
@@ -12,6 +14,7 @@ const VendorSignup = () => {
     showOnlyHomeAboutGet: true,
   };
 
+
   const [businessName, setBusinessName] = useState('');
   const navigate = useNavigate();
 
@@ -20,6 +23,7 @@ const VendorSignup = () => {
     localStorage.setItem('businessName', businessName);
     navigate('/signupForm');
   };
+
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -32,18 +36,22 @@ const VendorSignup = () => {
           <p className="text-gray-600 mb-6">
             We would like to know the name of your Restaurant
           </p>
+
           <form onSubmit={handleNext} className="space-y-6">
             <div>
               <input
                 type="text"
                 value={businessName}
                 onChange={(e) => setBusinessName(e.target.value)}
+
                 className="w-full px-4 py-3 border border-gray-300 rounded-3xl focus:outline-none focus:ring-2 focus:ring-[#F6821F]"
                 required
               />
             </div>
             <button
+
              type="submit"
+
               className="w-full bg-[#F6821F] text-white py-3 rounded-3xl hover:bg-[#E57200] transition duration-300"
             >
               Continue
