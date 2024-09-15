@@ -1,4 +1,6 @@
-import React from "react";
+
+import React, { useState } from 'react';
+
 import googleIcon from "../../assets/google-icon.svg";
 import facebookIcon from "../../assets/facebook-icon.svg";
 import appleIcon from "../../assets/apple-icon.svg";
@@ -6,42 +8,88 @@ import emailIcon from "../../assets/email-icon.svg";
 import chefImage from "../../assets/CookingVendor.svg";
 import Navbar from "../../layouts/navbar/navbar";
 
+import { useNavigate } from 'react-router-dom';
+
 const SignUpForm = () => {
+
+  const [businessAddress, setBusinessAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+   
+    const businessName = localStorage.getItem('businessName');
+
+   
+    fetch('https://foodit-cpig.onrender.com/auth/vendor/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        businessName: businessName,
+        businessAddress: businessAddress,
+        phoneNumber: phoneNumber,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData?.error?.responseMessage || 'Signup failed');
+          });
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setLoading(false);
+        if (data.success) {
+          navigate('/otpSignup');
+        } else {
+          throw new Error(data?.error?.responseMessage || 'Signup failed');
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error.message); 
+      });
+  };
+
+
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
       <div className="flex-grow flex items-center justify-center px-4 py-20 lg:mt-12 mt-9">
         <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
           <div className="w-full md:w-1/3 max-w-md">
-            <form className="space-y-6">
-              <div className="flex space-x-4">
-                <div className="w-1/2">
-                  <label
-                    htmlFor="firstName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
-                  />
-                </div>
-                <div className="w-1/2">
-                  <label
-                    htmlFor="lastName"
-                    className="block text-sm font-medium text-gray-700 mb-1"
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
-                  />
-                </div>
+
+            <form onSubmit={handleSignup} className="space-y-6">
+            <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1"
+                >
+                  Business Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  value={businessAddress}
+                  onChange={(e) => setBusinessAddress(e.target.value)}
+                  className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
+                />
               </div>
+             
+
               <div>
                 <label
                   htmlFor="email"
@@ -52,6 +100,10 @@ const SignUpForm = () => {
                 <input
                   type="email"
                   id="email"
+
+                  value={email}
+            onChange={(e) => setEmail(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -60,11 +112,15 @@ const SignUpForm = () => {
                   htmlFor="confirmEmail"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  Confirm Email Address
+
+                  Password
                 </label>
                 <input
-                  type="email"
-                  id="confirmEmail"
+                  type="password"
+                  id="password"
+                  value={password}
+            onChange={(e) => setPassword(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -78,6 +134,10 @@ const SignUpForm = () => {
                 <input
                   type="tel"
                   id="phone"
+
+                  value={phoneNumber}
+            onChange={(e) => setPhoneNumber(e.target.value)}
+
                   className="w-full p-3 border rounded-3xl focus:ring-[#F08F00] focus:border-[#F08F00]"
                 />
               </div>
@@ -93,12 +153,15 @@ const SignUpForm = () => {
                 </label>
               </div>
               <button
-                type="submit"
+
+                type="submit" disabled={loading}
                 className="w-full bg-[#F08F00] text-white py-3 rounded-3xl hover:bg-[#D67E00]"
               >
-                Agree and Continue
+                 {loading ? 'Signing up...' : ' Agree and Continue'}
               </button>
             </form>
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+
             <div className="mt-8 text-center">
               <div className="flex items-center justify-center">
                 <div className="flex-grow h-px bg-gray-300"></div>

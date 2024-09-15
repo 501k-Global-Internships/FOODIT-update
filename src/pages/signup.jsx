@@ -9,52 +9,68 @@ import { signup } from '../auth';
 import { toast } from 'react-toastify';
 
 export default function Signup() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState(null);
   const navigate = useNavigate();
-  const [userDetails, setUserDetails] = useState({ firstName: "", lastName: "",  email: "", password: "" });
-  const [error, setError] = useState("");
 
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUserDetails({
-      ...userDetails,
-      [name]: value,
-    });
-  };
-
-  const handleSignup = async (e) => {
+  const handleSignup = (e) => {
     e.preventDefault();
-    setError("");
+    setLoading(true);
+    setError(null);
 
-    try {
-      const data = await signup(userDetails);
-      if (data.success) {
-        toast.success("Signup successful! Welcome!", {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 5000,
-        });
-        navigate("/login");
-      } else {
-        if (data.message === "User already exists") {
-          setError("User already exists. Please log in or use a different email.");
-        } else if (data.message === "Password is not strong enough") {
-          setError("Password is not strong enough. Please use at least 8 characters with a mix of letters and numbers.");
-        } else {
-          setError(data.message || "Signup failed. Please try again.");
+    // Make a POST request to the signup API endpoint
+    fetch('https://foodit-cpig.onrender.com/auth/local/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((errorData) => {
+            throw new Error(errorData?.error?.responseMessage || 'Signup failed');
+          });
         }
-      }
-    } catch (err) {
-      if (err.message.includes("User already exists")) {
-        setError("User already exists. Please log in or use a different email.");
-      } else if (err.message.includes("Password is not strong enough")) {
-        setError("Password is not strong enough. Please use at least 8 characters with a mix of letters and numbers.");
-      } else {
-        setError(err.message || "Signup failed. Please try again.");
-      }
-      console.error("Signup failed with error:", err);
-    }
+        return response.json();
+      })
+      .then((data) => {
+        setLoading(false);
 
-    console.log(error)
+        if (data.success) {
+          const accessToken = data.accessToken;
+          const token = data.token;
+
+          if (accessToken && token) {
+            // Store tokens in localStorage (or sessionStorage if needed)
+            localStorage.setItem('accessToken', accessToken);
+            localStorage.setItem('token', token);
+
+            // Navigate to the dashboard or another route
+            setMessage('Signup successful! Redirecting to dashboard...');
+            setTimeout(() => navigate('/login'), 2000);
+          } else {
+            throw new Error('Signup successful but tokens are missing.');
+          }
+        } else {
+          throw new Error(data?.error?.responseMessage || 'Signup failed');
+        }
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(error.message); // Show error message
+      });
   };
 
   
@@ -68,7 +84,7 @@ export default function Signup() {
         <div className="w-full min-h-screen flex justify-center items-center pt-[60px] md:pt-16 px-0 md:px-4">
           <div className="bg-white w-full md:max-w-[1280px] min-h-screen md:min-h-[90vh] flex flex-col md:flex-row justify-between px-4 md:px-10">
             <div className="bg-white h-full w-full md:w-[547px] min-h-[90vh] flex flex-row justify-center items-center pt-8 md:pt-0">
-              <form action="" className="w-full max-w-[456px]">
+              <form onSubmit={handleSignup} className="w-full max-w-[456px]">
                 <div className="flex flex-col md:flex-row justify-between mb-5 gap-4 md:gap-0">
                   <label htmlFor="" className="w-full md:w-auto">
                     <p className="text-black font-mont font-bold text-[18px]">
@@ -76,7 +92,8 @@ export default function Signup() {
                     </p>
                     <input
                       type="text"
-                      name="firstName" value={userDetails.firstName} onChange={handleChange}
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
                       placeholder="Joel"
                       className="w-full md:w-[213px] h-[60px] rounded-[600px] border-[1px] px-3 outline-none"
                     />
@@ -88,7 +105,8 @@ export default function Signup() {
                     </p>
                     <input
                       type="text"
-                      name="lastName" value={userDetails.lastName} onChange={handleChange}
+                      value={lastName}
+                      onChange={(e) => setLastName(e.target.value)}
                       placeholder="Joel"
                       className="border-[1px] w-full md:w-[213px] h-[60px] rounded-[600px] px-3 outline-none"
                     />
@@ -101,7 +119,8 @@ export default function Signup() {
                   </p>
                   <input
                     type="email"
-                    name="email" value={userDetails.email} onChange={handleChange}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     placeholder="testing@gmail.com"
                     className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                   />
@@ -113,7 +132,8 @@ export default function Signup() {
                   </p>
                   <input
                     type="password"
-                    name="password" value={userDetails.password} onChange={handleChange}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     placeholder="Password"
                     className="border-[1px] w-full h-[60px] rounded-[600px] px-3 outline-none"
                   />
@@ -130,10 +150,10 @@ export default function Signup() {
                   </p>
                 </div>
                 <button
-                  onClick={handleSignup}
+                  type="submit" disabled={loading}
                   className="w-full h-[60px] rounded-[600px] text-white font-bold font-mont text-[18px] bg-[#F6821F] items-center"
                 >
-                  Agree and Continue
+                    {loading ? 'Signing up...' : 'Agree and Continue '}
                 </button>
                 {error && <div style={{ color: "red", fontSize: "12px" }}>{error}</div>}
               </form>
