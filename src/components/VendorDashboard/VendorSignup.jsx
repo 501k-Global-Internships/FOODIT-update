@@ -17,7 +17,6 @@ const VendorSignup = () => {
 
   const handleNext = (e) => {
     e.preventDefault();
-    // Save business name in localStorage or pass it via state
     localStorage.setItem('businessName', businessName);
     navigate('/signupForm');
   };

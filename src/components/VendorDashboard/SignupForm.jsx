@@ -22,10 +22,10 @@ const SignUpForm = () => {
     setLoading(true);
     setError(null);
 
-    // Get the business name from localStorage (or pass it via state)
+   
     const businessName = localStorage.getItem('businessName');
 
-    // API call to submit all the signup data
+   
     fetch('https://foodit-cpig.onrender.com/auth/vendor/signup', {
       method: 'POST',
       headers: {
@@ -50,7 +50,6 @@ const SignUpForm = () => {
       .then((data) => {
         setLoading(false);
         if (data.success) {
-          // Navigate to the dashboard
           navigate('/otpSignup');
         } else {
           throw new Error(data?.error?.responseMessage || 'Signup failed');
@@ -58,7 +57,7 @@ const SignUpForm = () => {
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message); // Show error message
+        setError(error.message); 
       });
   };
 

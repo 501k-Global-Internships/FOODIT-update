@@ -23,14 +23,12 @@ const OtpSignup = () => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
-    const otpCode = otp.join(''); // Combine the array of digits into a single OTP string
-    const phoneNumber = localStorage.getItem('phoneNumber'); // Retrieve the phone number from local storage
-
-    // Construct the URL with query parameters for the GET request
-    const url = `https://foodit-cpig.onrender.com/auth/vendor/account_activation?phoneNumber=${phoneNumber}&otp=${otpCode}`;
-
-    // Call the OTP verification API using GET
+  
+    const otpCode = otp.join(''); 
+    const email = localStorage.getItem('email');
+  
+    const url = `https://foodit-cpig.onrender.com/auth/vendor/account_activation?email=${email}&otp=${otpCode}`;
+  
     fetch(url, {
       method: 'GET',
     })
@@ -45,7 +43,6 @@ const OtpSignup = () => {
       .then((data) => {
         setLoading(false);
         if (data.success) {
-          // OTP was successfully verified, redirect to the next page (e.g., dashboard or home)
           navigate('/dashboard');
         } else {
           throw new Error(data?.error?.responseMessage || 'OTP verification failed');
@@ -53,7 +50,7 @@ const OtpSignup = () => {
       })
       .catch((error) => {
         setLoading(false);
-        setError(error.message); // Display error message
+        setError(error.message); 
       });
   };
 
