@@ -35,7 +35,7 @@ export default function Numberpage() {
                                 <option value="">+234</option>
                                 <option value="">+234</option>
                             </select>
-                            <input type="number" name="com" className='border-[1px] mb-5 w-[356px] h-[60px] rounded-[600px] px-3 outline-none' />
+                            <input type="number" name="" className='border-[1px] mb-5 w-[356px] h-[60px] rounded-[600px] px-3 outline-none' />
                         </div>
 
                         <button onClick={handleSignupButton} className='w-[456px] h-[60px] rounded-[600px] text-white font-bold font-mont text-[18px] bg-[#F6821F] items-center'>Continue</button>
