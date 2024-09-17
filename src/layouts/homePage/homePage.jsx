@@ -94,7 +94,7 @@ const HomePage = () => {
               </h1>
               <p className="text-[1.1rem] mb-4 mt-6 text-white">
                 Food is a Universal Language. And Nigeria is home <br />
-                to over 1000 of these Languages.
+                to over 1000 of these Languagesss.
               </p>
               <SearchBar />
             </div>
