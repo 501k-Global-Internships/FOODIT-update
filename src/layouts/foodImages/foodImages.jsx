@@ -6,7 +6,7 @@ import Rice from "../../assets/riceImg.svg";
 const FoodImages = ({ menuStyle = false }) => {
   if (menuStyle) {
     return (
-      <div className="relative w-full h-[24rem]">
+      <div className="relative w-full h-[24rem] right-60">
         <div className="absolute right-[-85%] top-[-4%]">
           <img
             src={Chicken}

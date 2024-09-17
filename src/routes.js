@@ -36,6 +36,8 @@ import Notification from './components/VendorDashboard/Notification';
 import DishSection from './components/VendorDashboard/DishSection';
 import OrderDetails from './components/VendorDashboard/OrderDetails';
 import AddDishes from './components/VendorDashboard/AddDishes';
+import OtpForget from './components/VendorDashboard/Otpforgetpassword';
+import ForgottenPassword from './components/VendorDashboard/forgottenpassword';
 
 
 
@@ -149,6 +151,19 @@ export default function Router() {
         element: <OtpSignup />,
         index: true,
       },
+
+      {
+        path: "otpForget",
+        element: <OtpForget />,
+        index: true,
+      },
+
+      {
+        path: "Forgotten",
+        element: <ForgottenPassword />,
+        index: true,
+      },
+
 
       {
         path: "toprated",

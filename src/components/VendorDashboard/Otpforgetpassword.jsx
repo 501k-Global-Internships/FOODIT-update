@@ -4,7 +4,7 @@ import Navbar from "../../layouts/navbar/navbar";
 
 import { useNavigate } from 'react-router-dom';
 
-const OtpSignup = () => {
+const OtpForget = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -46,7 +46,7 @@ const OtpSignup = () => {
       .then((data) => {
         setLoading(false);
         if (data.success) {
-          navigate('/dashboard');
+          navigate('/resetPassword');
         } else {
           throw new Error(data?.error?.responseMessage || 'OTP verification failed');
         }
@@ -130,5 +130,5 @@ const OtpSignup = () => {
 };
 
 
-export default OtpSignup;
+export default OtpForget;
 
