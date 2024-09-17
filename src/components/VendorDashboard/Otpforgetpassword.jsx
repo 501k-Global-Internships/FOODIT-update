@@ -89,7 +89,7 @@ const OtpForget = () => {
               We sent a 6-digit One Time Password (OTP) to your phone number.
             </p>
             <form onSubmit={handleSubmit}>
-              <div className="flex justify-between mb-6">
+              <div className="flex justify-between mb-6 ">
                 {otp.map((data, index) => {
                   return (
                     <input
